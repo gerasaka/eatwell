@@ -8,12 +8,12 @@ module.exports = {
     app: path.resolve(__dirname, "src/scripts/index.js"),
   },
   output: {
-    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
   module: {
     rules: [
+      { test: /\.(png|jpg|jpeg|svg|webp|gif)$/i, type: "asset/resource" },
       {
         test: /\.(css|scss|sass)$/,
         use: ["style-loader", "css-loader", "sass-loader"],
