@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "mixins";
+@import "variables";
 
 h1,
 h2,
@@ -7,11 +9,135 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Aclonica", sans-serif;
+  font-family: $display-font;
 }
 
 p,
 div,
 span {
-  font-family: "Poppins", sans-serif;
+  font-family: $sans-font;
+}
+
+body {
+  background-color: $background-color;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  button {
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: $primary-color-light;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  nav {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: $primary-color-light;
+      font-family: $display-font;
+    }
+  }
+}
+
+.content {
+  padding: 1rem;
+
+  h1 {
+    font-size: 20px;
+    text-align: center;
+    color: $primary-color;
+  }
+
+  h2 {
+    font-family: $sans-font;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .restaurant-container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    .restaurant-item {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+
+      .rating {
+        position: absolute;
+        top: 10%;
+        right: 0.75rem;
+
+        background-color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        color: goldenrod;
+        font-size: 14px;
+      }
+
+      .details {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        color: white;
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(40, 40, 40, 0.6) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        padding: 0.75rem;
+
+        span {
+          display: flex;
+          gap: 0.25rem;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $primary-color-light;
+  padding: 1rem;
+  border-radius: 1rem 1rem 0 0;
+  color: white;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-align: center;
 }
