@@ -3,3 +3,4 @@ import "../styles/reset.css";
 import "../styles/main.scss";
 
 import "./components/header";
+import "./components/hero";
