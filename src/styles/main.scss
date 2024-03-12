@@ -1,14 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Port+Lligat+Sans&display=swap");
+
 @import "mixins";
 @import "variables";
 
+// component styles
+@import "./components/header.scss";
+
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
   font-family: $display-font;
 }
 
@@ -26,44 +27,8 @@ body {
 
   min-height: 100vh;
   min-height: 100svh;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-
-  button {
-    display: block;
-    background-color: transparent;
-    border: none;
-    color: $primary-color-light;
-
-    @include tablet {
-      display: none;
-    }
-  }
-
-  nav {
-    display: none;
-
-    @include tablet {
-      display: block;
-    }
-
-    ul {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
-    }
-
-    a {
-      text-decoration: none;
-      color: $primary-color-light;
-      font-family: $display-font;
-    }
-  }
+  max-width: 1200px;
+  margin: auto;
 }
 
 .content {

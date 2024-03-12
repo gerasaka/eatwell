@@ -1,0 +1,92 @@
+header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+
+  img {
+    height: 20px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+
+    border: transparent;
+    border-radius: 0.5rem;
+    background-color: $primary-color-light;
+    color: $text-color;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  button:active {
+    background-color: $primary-color;
+  }
+
+  nav {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+      font-family: $sans-font;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.overlay {
+  display: block;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 100%;
+  background-color: rgba(56, 55, 55, 0.412);
+  height: calc(100svh - 60px);
+  z-index: 100;
+}
+
+.open-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+
+  background-color: $background-color;
+  padding: 4rem 1rem 0;
+  z-index: 1000;
+
+  flex-direction: column;
+  gap: 1.5rem;
+
+  li {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  li:hover {
+    background-color: $primary-color-light;
+  }
+
+  li:active {
+    background-color: $primary-color;
+  }
+}
