@@ -30,12 +30,6 @@ header-content {
   }
 
   nav {
-    display: none;
-
-    @include tablet {
-      display: block;
-    }
-
     ul {
       display: flex;
       gap: 1rem;
@@ -53,20 +47,25 @@ header-content {
 }
 
 .overlay {
-  display: block;
   position: absolute;
   top: 60px;
   right: 0;
-  width: 100%;
-  background-color: rgba(56, 55, 55, 0.412);
+  width: 0%;
   height: calc(100svh - 60px);
+  background-color: rgba(56, 55, 55, 0.412);
   z-index: 100;
+  overflow: hidden;
+  transition: ease-in-out 0.4s;
 }
 
-.open-nav {
+.show-overlay {
+  width: 100%;
+}
+
+.drawer {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -200px;
   width: 200px;
   height: 100%;
 
@@ -76,6 +75,8 @@ header-content {
 
   flex-direction: column;
   gap: 1.5rem;
+
+  transition: ease-in-out 0.5s;
 
   li {
     padding: 0.5rem;
@@ -89,4 +90,8 @@ header-content {
   li:active {
     background-color: $primary-color;
   }
+}
+
+.open-drawer {
+  right: 0;
 }
