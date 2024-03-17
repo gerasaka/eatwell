@@ -7,6 +7,7 @@
 // component styles
 @import "./components/header.scss";
 @import "./components/hero.scss";
+@import "./components/restaurant-card.scss";
 
 h1,
 h2,
@@ -32,69 +33,21 @@ body {
   margin: auto;
 }
 
-.content {
+#content {
   padding: 1rem;
 
   h1 {
-    font-size: 20px;
-    text-align: center;
-    color: $primary-color;
-  }
-
-  h2 {
     font-family: $sans-font;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    color: $text-color;
+    margin: 2rem 0 1.5rem;
   }
 
-  .restaurant-container {
-    margin-top: 1rem;
+  #restaurant-container {
     display: grid;
     grid-template-columns: 1fr;
-
-    .restaurant-item {
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-
-      .rating {
-        position: absolute;
-        top: 10%;
-        right: 0.75rem;
-
-        background-color: white;
-        padding: 0.25rem 0.5rem;
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-
-        color: goldenrod;
-        font-size: 14px;
-      }
-
-      .details {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-
-        width: 100%;
-        color: white;
-        background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.8) 0%,
-          rgba(40, 40, 40, 0.6) 50%,
-          rgba(255, 255, 255, 0) 100%
-        );
-        padding: 0.75rem;
-
-        span {
-          display: flex;
-          gap: 0.25rem;
-          align-items: center;
-        }
-      }
-    }
+    gap: 1.5rem;
   }
 }
 

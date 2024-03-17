@@ -1,8 +1,7 @@
 const eatwellLogo = require("../../public/images/logo/eatwell-logo-transparent.png");
 
 export class Header extends HTMLElement {
-  isNavbarOpen = false;
-
+  isDrawerOpen = false;
   navWrapper = null;
   ulElement = null;
 
@@ -22,9 +21,9 @@ export class Header extends HTMLElement {
   }
 
   toggleDrawer() {
-    this.isNavbarOpen = !this.isNavbarOpen;
+    this.isDrawerOpen = !this.isDrawerOpen;
 
-    if (this.isNavbarOpen) {
+    if (this.isDrawerOpen) {
       this.navWrapper.classList.add("show-overlay");
       this.ulElement.classList.add("open-drawer");
     } else {
@@ -55,8 +54,8 @@ export class Header extends HTMLElement {
         </svg>
       </button>
 
-      <nav class="overlay">
-        <ul class="drawer">
+      <nav>
+        <ul>
           <li><a href="index.html">Beranda</a></li>
           <li><a href="#">Favorit</a></li>
           <li><a href="https://github.com/gerasaka">Tentang Kami</a></li>

@@ -1,0 +1,48 @@
+.restaurant-item {
+  background-color: $primary-color-light;
+  border-radius: 2rem;
+  padding: 1rem;
+
+  // neumorphism item
+  // background: #f8f5ed;
+  // box-shadow: 12px 12px 24px #dfddd5, -12px -12px 24px #ffffff;
+
+  img {
+    border-radius: 1rem;
+    object-fit: cover;
+    max-height: 200px;
+    min-height: 200px;
+    width: 100%;
+  }
+
+  .restaurant-info {
+    padding: 1rem 0.5rem 0;
+
+    h2 {
+      font-family: $sans-font;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .details {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 1rem;
+
+      span {
+        display: flex;
+        gap: 0.25rem;
+        align-items: center;
+        color: #7f7f7f;
+      }
+
+      .rating {
+        background-color: rgb(243 219 159);
+        color: rgb(204 155 34);
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+      }
+    }
+  }
+}
