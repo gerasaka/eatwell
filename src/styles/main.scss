@@ -52,10 +52,10 @@ body {
 }
 
 footer {
-  background-color: $primary-color-light;
+  background-color: $text-color;
   padding: 1rem;
   border-radius: 1rem 1rem 0 0;
-  color: white;
+  color: $primary-color-light;
   font-weight: bold;
   font-size: 0.75rem;
   text-align: center;
