@@ -8,12 +8,18 @@
   </head>
   <body>
     <header>
+      <a href="#main" class="skip-link">Menuju konten</a>
       <header-content></header-content>
     </header>
 
-    <main>
+    <main id="main" tabindex="0">
       <section id="carousel">
-        <img id="carousel-item" src="../images/heroes/hero-image_1.jpg" alt="gambar hero" />
+        <img
+          id="carousel-item"
+          src="../images/heroes/hero-image_1.jpg"
+          alt="gambar hero"
+          tabindex="0"
+        />
 
         <!-- chevron icon -->
         <span class="scroll-down">
@@ -37,13 +43,13 @@
       </section>
 
       <section id="content">
-        <h1>Temukan Restoran</h1>
+        <h1 tabindex="0">Temukan Restoran</h1>
         <div id="restaurant-container"></div>
       </section>
     </main>
 
-    <footer>
-      <p>Copyright &#169; 2024 - eatwell</p>
+    <footer tabindex="0">
+      <p tabindex="0">Copyright &#169; 2024 - eatwell</p>
     </footer>
   </body>
 </html>

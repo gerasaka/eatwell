@@ -22,15 +22,16 @@ export class RestaurantCard extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <div class="restaurant-item">
+      <div class="restaurant-item" tabindex="0">
         <img
           src="${this.imageUrl}"
           alt="gambar ${this.name}"
           onerror="this.onerror=null;this.src='${noImage}';this.style.objectFit = 'contain';this.style.padding = '3rem'"
+          tabindex="0"
         />
 
         <div class="restaurant-info">
-          <h2>${this.name}</h2>
+          <h2 tabindex="0">${this.name}</h2>
 
           <div class="details">
             <span class="rating">
@@ -48,7 +49,7 @@ export class RestaurantCard extends HTMLElement {
                 />
               </svg>
 
-              <p>${this.rating}</p>
+              <p tabindex="0">${this.rating}</p>
             </span>
               
             <span>
@@ -72,7 +73,7 @@ export class RestaurantCard extends HTMLElement {
                   d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
                 />
               </svg>
-              <p>${this.location}</p>
+              <p tabindex="0">${this.location}</p>
             </span>
           </div>
         </div>

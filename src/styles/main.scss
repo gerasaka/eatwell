@@ -41,6 +41,23 @@ body {
   margin: auto;
 }
 
+.skip-link {
+  position: absolute;
+  top: -130px;
+  left: 0;
+
+  padding: 1rem;
+  background-color: $text-color;
+  text-decoration: none;
+  font-family: $sans-font;
+  color: $primary-color-light;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 #content {
   padding: 2rem;
 
