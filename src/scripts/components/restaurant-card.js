@@ -26,6 +26,7 @@ export default class RestaurantCardComponent extends HTMLElement {
         <img
           src="${this.imageUrl}"
           alt="gambar ${this.name}"
+          loading="lazy"
           onerror="this.onerror=null;this.src='${noImage}';this.style.objectFit = 'contain';this.style.padding = '3rem'"
           tabindex="0"
         />
