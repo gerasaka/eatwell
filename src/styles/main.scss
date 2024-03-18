@@ -87,6 +87,15 @@ footer {
   font-weight: bold;
   font-size: 0.75rem;
   text-align: center;
+
+  @include tablet {
+    font-size: 1rem;
+  }
+
+  @include desktop-large {
+    width: 100svw;
+    margin-left: calc(-1 * ((100svw - 1200px) / 2));
+  }
 }
 
 .scroll-down {
