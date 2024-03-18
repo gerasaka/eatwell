@@ -58,6 +58,13 @@ body {
   top: 0;
 }
 
+header {
+  background-color: $background-color;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 #content {
   padding: 2rem;
 
