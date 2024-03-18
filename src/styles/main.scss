@@ -9,6 +9,14 @@
 @import "./components/hero.scss";
 @import "./components/restaurant-card.scss";
 
+html {
+  font-size: 14px;
+
+  @include tablet {
+    font-size: 16px;
+  }
+}
+
 h1,
 h2,
 h3 {
@@ -34,7 +42,11 @@ body {
 }
 
 #content {
-  padding: 1rem;
+  padding: 2rem;
+
+  @include desktop {
+    padding: 3rem;
+  }
 
   h1 {
     font-family: $sans-font;
@@ -48,6 +60,22 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+
+    @media screen and (min-width: 450px) and (max-width: 499px) {
+      padding: 1.5rem;
+    }
+
+    @media screen and (min-width: 500px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include tablet {
+      padding: 1rem;
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
 

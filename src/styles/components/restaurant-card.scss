@@ -10,9 +10,20 @@
   img {
     border-radius: 1rem;
     object-fit: cover;
-    max-height: 200px;
-    min-height: 200px;
     width: 100%;
+    height: calc(48svw);
+
+    @media screen and (min-width: 500px) {
+      height: calc(24svw);
+    }
+
+    @include desktop {
+      height: calc(16svw);
+    }
+
+    @include wide-screen {
+      height: 200px;
+    }
   }
 
   .restaurant-info {

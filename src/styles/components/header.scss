@@ -8,6 +8,10 @@ header-content {
     padding: 1rem;
   }
 
+  @include desktop {
+    padding: 1rem 1.5rem;
+  }
+
   img {
     height: 1.25rem;
 
