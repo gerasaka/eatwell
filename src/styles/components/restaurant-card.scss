@@ -11,14 +11,14 @@
     border-radius: 1rem;
     object-fit: cover;
     width: 100%;
-    height: calc(48svw);
+    height: 48svw;
 
     @media screen and (min-width: 500px) {
-      height: calc(24svw);
+      height: 24svw;
     }
 
     @include desktop {
-      height: calc(16svw);
+      height: 16svw;
     }
 
     @include wide-screen {

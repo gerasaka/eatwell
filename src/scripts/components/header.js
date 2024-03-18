@@ -1,6 +1,7 @@
 const eatwellLogo = require("../../public/images/logo/eatwell-logo-transparent.png");
+import { HamburgerIcon } from "../icons";
 
-export class Header extends HTMLElement {
+export default class HeaderComponent extends HTMLElement {
   isDrawerOpen = false;
   navWrapper = null;
   ulElement = null;
@@ -11,23 +12,7 @@ export class Header extends HTMLElement {
 
   createDrawer() {
     const btnElement = document.createElement("button");
-    btnElement.innerHTML = `
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        height="24px"
-        width="24px"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-        />
-      </svg>
-    `;
+    btnElement.appendChild(new HamburgerIcon());
     this.appendChild(btnElement);
 
     this.navWrapper = this.querySelector("nav");
@@ -66,4 +51,4 @@ export class Header extends HTMLElement {
   }
 }
 
-customElements.define("header-content", Header);
+customElements.define("header-content", HeaderComponent);
