@@ -4,8 +4,20 @@ header-content {
   align-items: center;
   padding: 0.5rem 1rem;
 
+  @include tablet {
+    padding: 1rem;
+  }
+
   img {
-    height: 20px;
+    height: 1.25rem;
+
+    @include tablet {
+      height: 1.5rem;
+    }
+
+    @include wide-screen {
+      height: 2rem;
+    }
   }
 
   button {
@@ -42,6 +54,10 @@ header-content {
       color: $text-color;
       font-family: $sans-font;
       font-size: 1.25rem;
+
+      @include wide-screen {
+        font-size: 1.75rem;
+      }
     }
   }
 }
@@ -56,6 +72,14 @@ header-content {
   z-index: 100;
   overflow: hidden;
   transition: ease-in-out 0.4s;
+
+  @include tablet {
+    position: static;
+    height: auto;
+    background-color: transparent;
+    width: auto;
+    transition: none;
+  }
 }
 
 .show-overlay {
@@ -77,6 +101,15 @@ header-content {
   gap: 1.5rem;
 
   transition: ease-in-out 0.5s;
+
+  @include tablet {
+    position: static;
+    height: auto;
+    flex-direction: row;
+    width: auto;
+    padding: 0;
+    transition: none;
+  }
 
   li {
     padding: 0.5rem;

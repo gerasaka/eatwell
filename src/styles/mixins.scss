@@ -10,8 +10,14 @@
   }
 }
 
-@mixin extra-large {
+@mixin desktop-large {
   @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin wide-screen {
+  @media only screen and (min-width: 1400px) {
     @content;
   }
 }
