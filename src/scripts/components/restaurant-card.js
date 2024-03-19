@@ -13,7 +13,7 @@ export default class RestaurantCardComponent extends HTMLElement {
     this.imageUrl = pictureId;
     this.name = name;
     this.location = city;
-    this.rating = rating;
+    this.rating = rating.toFixed(1);
   }
 
   connectedCallback() {
