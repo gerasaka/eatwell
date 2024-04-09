@@ -10,7 +10,8 @@
     "start-dev": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist",
-    "lint": "yarn run eslint src",
+    "lint": "yarn run eslint ./src",
+    "format": "npx prettier ./src --write",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
@@ -32,6 +33,7 @@
     "http-server": "^14.1.1",
     "jest": "^29.6.1",
     "jest-environment-jsdom": "^29.6.1",
+    "prettier": "3.2.5",
     "style-loader": "^3.3.1",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
@@ -40,6 +42,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "eslint-config-prettier": "^9.1.0",
     "regenerator-runtime": "^0.14.0",
     "sass": "^1.70.0",
     "sass-loader": "^14.1.0"
