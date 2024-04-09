@@ -24,7 +24,7 @@ export default class RestaurantCardComponent extends HTMLElement {
     this.innerHTML = `
       <div class="restaurant-item" tabindex="0">
         <img
-          src="${this.imageUrl}"
+          src="https://restaurant-api.dicoding.dev/images/medium/${this.imageUrl}"
           alt="gambar ${this.name}"
           loading="lazy"
           onerror="this.onerror=null;this.src='${noImage}';this.style.objectFit = 'contain';this.style.padding = '3rem'"

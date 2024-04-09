@@ -158,3 +158,26 @@ footer {
     opacity: 0;
   }
 }
+
+.empty-wrapper {
+  text-align: center;
+
+  @media screen and (min-width: 500px) {
+    position: relative;
+    left: 50%;
+  }
+
+  @include desktop {
+    left: 100%;
+  }
+
+  img {
+    margin: auto;
+    width: 10rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: $text-color;
+  }
+}
