@@ -1,8 +1,13 @@
 import { RestaurantCardComponent } from "../../components";
 import animateCarousel from "../../components/hero";
-import { LIST_RESTAURANT } from "../../constant/api-path";
 
-export default class Home {
+export default class HomePageComponent {
+  _restaurantService = undefined;
+
+  constructor(restaurantService) {
+    this._restaurantService = restaurantService;
+  }
+
   createCarouselEl() {
     const wrapperElement = document.createElement("section");
     wrapperElement.id = "carousel";
@@ -35,13 +40,7 @@ export default class Home {
     const restaurantContainer = document.createElement("div");
     restaurantContainer.className = "restaurant-container";
 
-    let restaurantList = [];
-
-    await fetch(LIST_RESTAURANT)
-      .then((res) => res.json())
-      .then((data) => (restaurantList = data.restaurants))
-      // eslint-disable-next-line no-console
-      .catch((err) => console.log("error occurs", err));
+    const restaurantList = await this._restaurantService.getRestaurantList();
 
     if (restaurantList.length) {
       restaurantList.forEach((restaurant) => {
@@ -69,9 +68,7 @@ export default class Home {
 
     pageWrapper.appendChild(carouselEl);
     pageWrapper.appendChild(restaurantListEl);
-  }
 
-  async afterRender() {
     animateCarousel();
   }
 }

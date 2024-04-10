@@ -1,7 +1,7 @@
-export default class Favorite {
+export default class FavouritePageComponent {
   async render(pageWrapper) {
     const el = document.createElement("h1");
-    el.innerHTML = "Favorite";
+    el.innerHTML = "Favourite";
 
     pageWrapper.appendChild(el);
   }
