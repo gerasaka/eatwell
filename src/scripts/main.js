@@ -5,6 +5,15 @@ import "../styles/main.scss";
 
 import "./icons";
 
-import * as comp from "./components";
+import "./components";
+import App from "./views/app";
 
-comp.generateRestaurantList();
+const app = new App();
+
+window.addEventListener("hashchange", () => {
+  app.renderPage();
+});
+
+window.addEventListener("load", () => {
+  app.renderPage();
+});

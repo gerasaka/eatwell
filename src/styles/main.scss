@@ -65,22 +65,22 @@ header {
   z-index: 100;
 }
 
-#content {
+h1 {
+  font-family: $sans-font;
+  font-size: 2rem;
+  text-align: center;
+  color: $text-color;
+  margin: 2rem 0 1.5rem;
+}
+
+.list-wrapper {
   padding: 2rem;
 
   @include desktop {
     padding: 3rem;
   }
 
-  h1 {
-    font-family: $sans-font;
-    font-size: 2rem;
-    text-align: center;
-    color: $text-color;
-    margin: 2rem 0 1.5rem;
-  }
-
-  #restaurant-container {
+  .restaurant-container {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;

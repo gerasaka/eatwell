@@ -1,3 +1,5 @@
+import { BASE_IMAGE_URL } from "../constant/config";
+
 const noImage = require("../../public/images/no-image.png");
 
 export default class RestaurantCardComponent extends HTMLElement {
@@ -24,7 +26,7 @@ export default class RestaurantCardComponent extends HTMLElement {
     this.innerHTML = `
       <div class="restaurant-item" tabindex="0">
         <img
-          src="https://restaurant-api.dicoding.dev/images/medium/${this.imageUrl}"
+          src="${BASE_IMAGE_URL}/${this.imageUrl}"
           alt="gambar ${this.name}"
           loading="lazy"
           onerror="this.onerror=null;this.src='${noImage}';this.style.objectFit = 'contain';this.style.padding = '3rem'"

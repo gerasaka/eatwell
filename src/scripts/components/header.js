@@ -19,10 +19,11 @@ export default class HeaderComponent extends HTMLElement {
     this.ulElement = this.querySelector("ul");
 
     const button = this.querySelector("button");
-    button.addEventListener("click", () => this.toggleDrawer());
+    button.addEventListener("click", (e) => this.toggleDrawer(e));
   }
 
-  toggleDrawer() {
+  toggleDrawer(e) {
+    e.stopPropagation();
     this.isDrawerOpen = !this.isDrawerOpen;
 
     if (this.isDrawerOpen) {
@@ -40,8 +41,8 @@ export default class HeaderComponent extends HTMLElement {
 
       <nav class="overlay">
         <ul class="drawer">
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="#">Favorit</a></li>
+          <li><a href="#/beranda">Beranda</a></li>
+          <li><a href="#/favorit">Favorit</a></li>
           <li><a href="https://github.com/gerasaka">Tentang Kami</a></li>
         </ul>
       </nav>
