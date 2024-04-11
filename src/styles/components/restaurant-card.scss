@@ -33,7 +33,6 @@
       font-family: $sans-font;
       font-size: 1.25rem;
       font-weight: bold;
-      margin-bottom: 0.5rem;
 
       a {
         text-decoration: none;
@@ -47,6 +46,7 @@
 
     .details {
       display: flex;
+      justify-content: space-between;
       gap: 0.5rem;
       font-size: 1rem;
 

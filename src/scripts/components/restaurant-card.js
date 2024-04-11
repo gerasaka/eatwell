@@ -36,17 +36,17 @@ export default class RestaurantCardComponent extends HTMLElement {
         />
 
         <div class="restaurant-info">
-          <h2 tabindex="0"><a href="#/details/${this.id}">${this.name}</a></h2>
+          <h2><a href="#/details/${this.id}">${this.name}</a></h2>
 
           <div class="details">
-            <span class="rating">
-              <icon-star></icon-star>
-              <p tabindex="0">${this.rating}</p>
-            </span>
-              
             <span>
               <icon-pin></icon-pin>
               <p tabindex="0">${this.location}</p>
+            </span>
+
+            <span class="rating">
+              <icon-star></icon-star>
+              <p tabindex="0">${this.rating}</p>
             </span>
           </div>
         </div>

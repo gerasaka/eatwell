@@ -41,6 +41,10 @@ header-content {
     }
   }
 
+  button:hover {
+    color: $secondary-color;
+  }
+
   button:active {
     background-color: $primary-color;
   }
@@ -55,7 +59,7 @@ header-content {
 
     a {
       text-decoration: none;
-      color: $text-color;
+      color: inherit;
       font-family: $sans-font;
       font-size: 1.25rem;
       padding: 0.75rem;
@@ -124,6 +128,7 @@ header-content {
 
   li:hover {
     background-color: $primary-color-light;
+    color: $secondary-color;
   }
 
   li:active {
