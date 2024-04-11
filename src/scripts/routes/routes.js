@@ -5,7 +5,7 @@ import HomePageComponent from "../views/pages/home";
 const routes = {
   "/": HomePageComponent,
   "/beranda": HomePageComponent,
-  "/details": DetailsPageComponent,
+  "/details/:id": DetailsPageComponent,
   "/favorit": FavouritePageComponent,
 };
 

@@ -1,0 +1,89 @@
+#details-wrapper {
+  padding: 2rem;
+
+  @include desktop {
+    padding: 3rem;
+  }
+
+  h2,
+  h3 {
+    font-family: $sans-font;
+  }
+}
+
+.details-header {
+  display: grid;
+  // grid-template-columns: 30% 70%;
+
+  h1 {
+    text-align: center;
+    margin: 2rem 0 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .address,
+  .rating {
+    h4 {
+      color: $secondary-color;
+      font-size: 1.5rem;
+    }
+
+    span {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+  }
+
+  .categories .pill-item {
+    padding: 0.25rem;
+    border-radius: 2rem;
+    border: 1px solid $text-color;
+  }
+}
+
+.description {
+  padding: 1rem;
+  border: 1px solid $secondary-color;
+}
+
+.menu-container {
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // gap: 1rem;
+
+  .menu-display {
+    display: flex;
+    gap: 1rem;
+    // border: 1px solid $primary-color;
+    background-color: $primary-color-light;
+    padding: 1rem;
+
+    ul {
+      padding: 0;
+    }
+  }
+
+  img {
+    height: 100px;
+  }
+}
+
+.review-item {
+  // background-color: $primary-color-light;
+  border: 1px solid $primary-color;
+  padding: 1rem;
+  // border-radius: 1rem;
+
+  h3 {
+    color: $secondary-color;
+  }
+
+  p:nth-child(2) {
+    color: #7f7f7f;
+    margin-bottom: 1rem;
+  }
+}
