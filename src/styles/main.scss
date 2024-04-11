@@ -69,22 +69,62 @@ header {
   z-index: 100;
 }
 
-footer {
-  background-color: $text-color;
-  padding: 1rem;
-  border-radius: 1rem 1rem 0 0;
-  color: $primary-color-light;
-  font-weight: bold;
-  font-size: 0.75rem;
-  text-align: center;
+// footer {
+//   background-color: $text-color;
+//   padding: 1rem;
+//   border-radius: 1rem 1rem 0 0;
+//   color: $primary-color-light;
+//   font-weight: bold;
+//   font-size: 0.75rem;
+//   text-align: center;
 
-  @include tablet {
-    font-size: 1rem;
+//   @include tablet {
+//     font-size: 1rem;
+//   }
+
+//   @include desktop-large {
+//     width: 100svw;
+//     margin-left: calc(-1 * ((100svw - 1200px) / 2));
+//   }
+// }
+
+footer {
+  padding: 2rem;
+
+  img {
+    width: 100%;
   }
 
-  @include desktop-large {
-    width: 100svw;
-    margin-left: calc(-1 * ((100svw - 1200px) / 2));
+  .contact {
+    .social div {
+      text-align: center;
+
+      img {
+        width: 100px;
+        margin: auto;
+      }
+
+      h3 {
+        font-family: $sans-font;
+      }
+    }
+
+    .social > span {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .mail {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .copy {
+      margin-top: 2rem;
+      text-align: center;
+      font-weight: 500;
+    }
   }
 }
 
