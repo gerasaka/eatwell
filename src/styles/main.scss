@@ -8,6 +8,8 @@
 @import "./components/header.scss";
 @import "./components/hero.scss";
 @import "./components/restaurant-card.scss";
+@import "./components/input-area.scss";
+@import "./components/button.scss";
 
 // pages styles
 @import "./pages/home.scss";
@@ -69,43 +71,46 @@ header {
   z-index: 100;
 }
 
-// footer {
-//   background-color: $text-color;
-//   padding: 1rem;
-//   border-radius: 1rem 1rem 0 0;
-//   color: $primary-color-light;
-//   font-weight: bold;
-//   font-size: 0.75rem;
-//   text-align: center;
-
-//   @include tablet {
-//     font-size: 1rem;
-//   }
-
-//   @include desktop-large {
-//     width: 100svw;
-//     margin-left: calc(-1 * ((100svw - 1200px) / 2));
-//   }
-// }
-
 footer {
   padding: 2rem;
 
   img {
     width: 100%;
+
+    @media screen and (min-width: 400px) {
+      max-width: 25rem;
+      margin: auto;
+    }
   }
 
   .contact {
     .social div {
       text-align: center;
 
+      @media screen and (min-width: 400px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+
       img {
-        width: 100px;
+        width: 6rem;
         margin: auto;
+
+        @media screen and (min-width: 400px) {
+          margin: 0;
+          width: 10rem;
+        }
       }
 
       h3 {
         font-family: $sans-font;
+
+        @media screen and (min-width: 400px) {
+          font-size: 2rem;
+          width: min-content;
+        }
       }
     }
 
@@ -113,11 +118,24 @@ footer {
       display: flex;
       gap: 1rem;
       justify-content: center;
+      margin: 1rem 0;
+    }
+
+    .social-icon {
+      color: rgb(204, 155, 34);
+      height: 36px;
+      width: 36px;
+      padding: 0.25rem;
+
+      :hover {
+        color: $secondary-color;
+      }
     }
 
     .mail {
       display: flex;
       flex-direction: column;
+      color: $text-color;
     }
 
     .copy {

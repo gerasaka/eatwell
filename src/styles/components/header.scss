@@ -25,28 +25,9 @@ header-content {
   }
 
   button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 44px;
-    min-height: 44px;
-
-    border: transparent;
-    border-radius: 0.5rem;
-    background-color: $primary-color-light;
-    color: $text-color;
-
     @include tablet {
       display: none;
     }
-  }
-
-  button:hover {
-    color: $secondary-color;
-  }
-
-  button:active {
-    background-color: $primary-color;
   }
 
   nav {
