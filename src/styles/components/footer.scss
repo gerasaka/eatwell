@@ -1,0 +1,87 @@
+footer-content {
+  h3 {
+    font-family: $sans-font;
+    margin: 1rem 0 0.5rem;
+    text-align: center;
+
+    @include tablet {
+      text-align: start;
+    }
+  }
+
+  .social > span {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    @include tablet {
+      justify-content: flex-start;
+    }
+  }
+
+  .icon-wrapper {
+    color: rgb(204, 155, 34);
+    padding: 0.75rem 0;
+    text-decoration: none;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    :hover {
+      color: $secondary-color;
+    }
+  }
+
+  .social-icon {
+    display: block;
+    height: 1.75rem;
+    width: fit-content;
+    min-width: 1.75rem;
+  }
+
+  .social-label {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  .mail span {
+    display: flex;
+    gap: 1rem;
+    color: $text-color;
+    justify-content: center;
+
+    @include tablet {
+      input {
+        width: 100%;
+      }
+    }
+
+    button {
+      padding: 0 1rem;
+    }
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    text-align: center;
+
+    @include tablet {
+      justify-content: flex-end;
+      margin-top: 0;
+      order: 1;
+    }
+
+    img {
+      width: 6rem;
+      margin: 0 auto;
+    }
+  }
+}

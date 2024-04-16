@@ -1,9 +1,9 @@
 .form-field {
   border: none;
   font-family: Helvetica, Arial, sans-serif;
-  border-radius: 0.25rem;
-  margin: 0.5rem 0;
+  border-radius: 0.5rem;
   color: $text-color;
+  padding: 1rem;
 }
 
 .form-field:focus-visible {

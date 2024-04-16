@@ -10,6 +10,7 @@
 @import "./components/restaurant-card.scss";
 @import "./components/input-area.scss";
 @import "./components/button.scss";
+@import "./components/footer.scss";
 
 // pages styles
 @import "./pages/home.scss";
@@ -83,65 +84,20 @@ footer {
     }
   }
 
-  .contact {
-    .social div {
-      text-align: center;
-
-      @media screen and (min-width: 400px) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-      }
-
-      img {
-        width: 6rem;
-        margin: auto;
-
-        @media screen and (min-width: 400px) {
-          margin: 0;
-          width: 10rem;
-        }
-      }
-
-      h3 {
-        font-family: $sans-font;
-
-        @media screen and (min-width: 400px) {
-          font-size: 2rem;
-          width: min-content;
-        }
-      }
-    }
-
-    .social > span {
+  footer-content {
+    @include tablet {
       display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin: 1rem 0;
-    }
+      gap: 2rem;
+      justify-content: space-between;
 
-    .social-icon {
-      color: rgb(204, 155, 34);
-      height: 36px;
-      width: 36px;
-      padding: 0.25rem;
-
-      :hover {
-        color: $secondary-color;
+      @include desktop {
+        justify-content: space-around;
       }
-    }
 
-    .mail {
-      display: flex;
-      flex-direction: column;
-      color: $text-color;
-    }
-
-    .copy {
-      margin-top: 2rem;
-      text-align: center;
-      font-weight: 500;
+      div,
+      form {
+        order: 2;
+      }
     }
   }
 }
