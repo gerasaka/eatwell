@@ -1,76 +1,142 @@
+import { BASE_IMAGE_URL } from "../../constant/config";
+import UrlParser from "../../routes/url-parser";
+
 export default class DetailsPageComponent {
   _restaurantService = undefined;
+  _restaurantDetails = undefined;
 
   constructor(restaurantService) {
     this._restaurantService = restaurantService;
   }
 
-  async render(pageWrapper) {
-    pageWrapper.innerHTML = `
-      <div id="details-wrapper">
-        <img src="images/heroes/hero-image_1.jpg" alt="" />
+  async loadRestaurantDetails() {
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    this._restaurantDetails = await this._restaurantService.getRestaurantDetails(url.id);
+  }
 
-        <section class="details-header">
-          <h1>Melting Pot</h1>
+  createDetailsHeaderEl() {
+    const wrapperElement = document.createElement("section");
+    wrapperElement.className = "details-header";
 
-          <div class="address">
-            <h4>Medan</h4>
-            <span><icon-pin></icon-pin> Jln. Pandeglang no 19</span>
-          </div>
+    wrapperElement.innerHTML = `
+      <h1>${this._restaurantDetails.name}</h1>
 
-          <div class="rating">
-            <h3>Rating</h3>
-            <span><icon-star></icon-star> 4.2</span>
-          </div>
+      <div class="address">
+        <h4>${this._restaurantDetails.city}</h4>
+        <span><icon-pin></icon-pin> Jln. Pandeglang no 19</span>
+      </div>
 
-          <div class="categories">
-            <h3>Kategori</h3>
-            <span class="pill-item">Italia</span>
-            <span class="pill-item">Modern</span>
-          </div>
-        </section>
+      <div class="rating">
+        <h3>Rating</h3>
+        <span><icon-star></icon-star> ${this._restaurantDetails.rating.toFixed(1)}</span>
+      </div>
 
-        <p class="description">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-          Aenean massa. ...
-        </p>
-
-        <section>
-          <h2>Menu</h2>
-
-          <div class="menu-container">
-            <div>
-              <p>Makanan</p>
-              <div class="menu-display">
-                <img src="images/illustration/food.png" alt="" />
-                <ul>
-                  <li>Paket rosemary</li>
-                  <li>Toastie salmon</li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <p>Minuman</p>
-              <div class="menu-display">
-                <img src="images/illustration/drink.png" alt="" />
-                <ul>
-                  <li>Es krim</li>
-                  <li>Sirup</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>Ulasan</h2>
-          <div class="review-item">
-            <h3>ahmad</h3>
-            <p>13 November 2019</p>
-            <p>Tidak rekomendasi untuk pelajar!</p>
-          </div>
-        </section>
+      <div class="categories">
+        <h3>Kategori</h3>
+        ${this.generateCategoriesEl()}
       </div>
     `;
+
+    return wrapperElement;
+  }
+
+  generateCategoriesEl() {
+    const categories = this._restaurantDetails.categories.map(
+      ({ name }) => `<span class="pill-item">${name}</span>`,
+    );
+
+    return categories.join("");
+  }
+
+  createMenuEl() {
+    const wrapperElement = document.createElement("section");
+    wrapperElement.innerHTML = `<h2>Menu</h2>`;
+
+    const menuContainer = document.createElement("div");
+    menuContainer.className = "menu-container";
+    menuContainer.innerHTML = `
+      <div>
+        <p>Makanan</p>
+        <div class="menu-display">
+          <img src="images/illustration/food.png" alt="ilustrasi makanan" />
+          <ul>
+            ${this.generateMenuEl.foods}
+          </ul>
+        </div>
+      </div>
+      <div>
+        <p>Minuman</p>
+        <div class="menu-display">
+          <img src="images/illustration/drink.png" alt="ilustrasi minuman" />
+          <ul>
+            ${this.generateMenuEl.drinks}
+          </ul>
+        </div>
+      </div>
+    `;
+
+    wrapperElement.appendChild(menuContainer);
+    return wrapperElement;
+  }
+
+  generateMenuEl() {
+    const foods = this._restaurantDetails.menus.foods.map(({ name }) => `<li>${name}</li>`);
+    const drinks = this._restaurantDetails.menus.drinks.map(({ name }) => `<li>${name}</li>`);
+
+    return { foods: foods.join(""), drinks: drinks.join("") };
+  }
+
+  createReviewEl() {
+    const wrapperElement = document.createElement("section");
+    wrapperElement.innerHTML = `
+      <h2>Ulasan</h2>
+      ${this.generateReviews()}
+    `;
+
+    return wrapperElement;
+  }
+
+  generateReviews() {
+    const reviews = this._restaurantDetails.customerReviews.map((review) => {
+      return `
+        <div class="review-item">
+          <h3>${review.name}</h3>
+          <p>${review.date}</p>
+          <p>${review.review}</p>
+        </div>
+      `;
+    });
+
+    return reviews.join("");
+  }
+
+  constructDetailsPage() {
+    const wrapperElement = document.createElement("div");
+    wrapperElement.className = "details-wrapper";
+
+    const restaurantImgEl = new Image();
+    restaurantImgEl.src = BASE_IMAGE_URL + `/${this._restaurantDetails.pictureId}`;
+    restaurantImgEl.alt = `Gambar ${this._restaurantDetails.name}`;
+
+    const descEl = document.createElement("p");
+    descEl.className = "description";
+    descEl.innerText = this._restaurantDetails.description;
+
+    const detailsHeaderEl = this.createDetailsHeaderEl();
+    const menuEl = this.createMenuEl();
+    const reviewEl = this.createReviewEl();
+
+    wrapperElement.appendChild(restaurantImgEl);
+    wrapperElement.appendChild(detailsHeaderEl);
+    wrapperElement.appendChild(descEl);
+    wrapperElement.appendChild(menuEl);
+    wrapperElement.appendChild(reviewEl);
+
+    return wrapperElement;
+  }
+
+  async render(pageWrapper) {
+    await this.loadRestaurantDetails();
+    pageWrapper.appendChild(this.constructDetailsPage());
   }
 }

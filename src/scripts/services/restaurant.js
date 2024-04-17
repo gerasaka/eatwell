@@ -22,7 +22,7 @@ export class RestaurantService {
     try {
       const response = await fetch(DETAIL_RESTAURANT + `/${id}`);
       const data = await response.json();
-      result = data.restaurants;
+      result = data.restaurant;
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log("error occurs when fetch restaurant details", err);

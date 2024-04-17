@@ -1,5 +1,10 @@
-#details-wrapper {
-  padding: 2rem;
+.details-wrapper {
+  padding: 1.5rem;
+  color: $text-color;
+
+  @include tablet {
+    padding: 2rem;
+  }
 
   @include desktop {
     padding: 3rem;
@@ -16,7 +21,6 @@
   // grid-template-columns: 30% 70%;
 
   h1 {
-    text-align: center;
     margin: 2rem 0 1.5rem;
   }
 
@@ -32,6 +36,7 @@
     }
 
     span {
+      color: #7f7f7f;
       display: flex;
       gap: 0.25rem;
       align-items: center;
