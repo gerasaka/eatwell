@@ -1,0 +1,20 @@
+.review-item {
+  height: 100%;
+  border: 1px solid $primary-color;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  h3 {
+    color: $secondary-color;
+  }
+
+  p:nth-child(2) {
+    color: #7f7f7f;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.review-item:hover {
+  box-shadow: 2px 2px 0 $secondary-color;
+}

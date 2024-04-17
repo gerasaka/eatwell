@@ -1,10 +1,6 @@
 .details-wrapper {
-  padding: 1.5rem;
+  padding: 0 2rem;
   color: $text-color;
-
-  @include tablet {
-    padding: 2rem;
-  }
 
   @include desktop {
     padding: 3rem;
@@ -17,37 +13,42 @@
 }
 
 .details-header {
-  display: grid;
-  // grid-template-columns: 30% 70%;
+  @include tablet {
+    display: grid;
+    grid-template-columns: 30% calc(70% - 1.25rem);
+    gap: 1.25rem;
 
-  h1 {
-    margin: 2rem 0 1.5rem;
+    > div {
+      order: 1;
+    }
+
+    img {
+      order: 2;
+    }
   }
 
-  h3 {
-    font-size: 1rem;
-  }
-
+  .rating,
   .address,
-  .rating {
-    h4 {
-      color: $secondary-color;
-      font-size: 1.5rem;
-    }
-
-    span {
-      color: #7f7f7f;
-      display: flex;
-      gap: 0.25rem;
-      align-items: center;
+  .categories {
+    h3 {
+      margin-top: 0.75rem;
+      margin-bottom: 0.25rem;
     }
   }
 
-  .categories .pill-item {
-    padding: 0.25rem;
-    border-radius: 2rem;
-    border: 1px solid $text-color;
+  .address span {
+    color: #7f7f7f;
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
   }
+}
+
+.description,
+.menu-wrapper,
+.review-wrapper,
+h1 {
+  margin-top: 2rem;
 }
 
 .description {
@@ -56,39 +57,48 @@
 }
 
 .menu-container {
-  // display: grid;
-  // grid-template-columns: 1fr 1fr;
-  // gap: 1rem;
-
-  .menu-display {
-    display: flex;
-    gap: 1rem;
-    // border: 1px solid $primary-color;
-    background-color: $primary-color-light;
-    padding: 1rem;
-
-    ul {
-      padding: 0;
-    }
+  @media screen and (min-width: 500px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 
-  img {
-    height: 100px;
+  .menu-display {
+    p {
+      margin: 0.5rem 0;
+    }
+
+    > div {
+      display: flex;
+      background-color: $primary-color-light;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    img {
+      height: 100px;
+      margin: auto;
+    }
+
+    ul {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 0.25rem;
+      height: 10rem;
+      width: 100%;
+      overflow-y: scroll;
+      padding-left: 1rem;
+    }
   }
 }
 
-.review-item {
-  // background-color: $primary-color-light;
-  border: 1px solid $primary-color;
-  padding: 1rem;
-  // border-radius: 1rem;
+.review-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
 
-  h3 {
-    color: $secondary-color;
-  }
-
-  p:nth-child(2) {
-    color: #7f7f7f;
-    margin-bottom: 1rem;
+  @include tablet {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

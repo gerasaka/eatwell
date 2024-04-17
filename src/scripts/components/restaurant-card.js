@@ -44,7 +44,7 @@ export default class RestaurantCardComponent extends HTMLElement {
               <p tabindex="0">${this.location}</p>
             </span>
 
-            <span class="rating">
+            <span class="rating-pill">
               <icon-star></icon-star>
               <p tabindex="0">${this.rating}</p>
             </span>
