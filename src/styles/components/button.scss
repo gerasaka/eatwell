@@ -10,12 +10,13 @@ button {
   background-color: $primary-color-light;
   color: $text-color;
   font-weight: 600;
+}
 
-  :hover {
-    color: $secondary-color;
-  }
+button:hover {
+  box-shadow: 2px 2px 0 $secondary-color;
+}
 
-  :active {
-    background-color: $primary-color;
-  }
+button:active {
+  background-color: $primary-color;
+  box-shadow: none;
 }
