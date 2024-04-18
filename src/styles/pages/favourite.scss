@@ -1,0 +1,29 @@
+.favourite-header {
+  color: $text-color;
+  text-align: center;
+
+  img {
+    height: 10rem;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-family: $sans-font;
+    margin: -1rem 0 0;
+  }
+}
+
+.favourite-header ~ .list-wrapper {
+  padding: 1.5rem 2rem 0;
+
+  .restaurant-container {
+    @media screen and (min-width: 450px) and (max-width: 499px) {
+      padding: 0 1.5rem;
+    }
+
+    @include tablet {
+      padding: 0 1rem;
+    }
+  }
+}
