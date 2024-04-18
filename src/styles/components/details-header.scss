@@ -1,0 +1,50 @@
+.details-header {
+  text-align: center;
+
+  @include tablet {
+    text-align: start;
+    display: grid;
+    grid-template-columns: 30% calc(70% - 1.25rem);
+    gap: 1.25rem;
+
+    > div {
+      order: 1;
+    }
+
+    img {
+      order: 2;
+    }
+  }
+
+  .rating,
+  .address,
+  .categories {
+    h3 {
+      margin-top: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    span {
+      justify-content: center;
+
+      @include tablet {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  .address span {
+    color: #7f7f7f;
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  .rating-pill {
+    margin: auto;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+}

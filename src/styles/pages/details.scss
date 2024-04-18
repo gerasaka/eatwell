@@ -12,38 +12,6 @@
   }
 }
 
-.details-header {
-  @include tablet {
-    display: grid;
-    grid-template-columns: 30% calc(70% - 1.25rem);
-    gap: 1.25rem;
-
-    > div {
-      order: 1;
-    }
-
-    img {
-      order: 2;
-    }
-  }
-
-  .rating,
-  .address,
-  .categories {
-    h3 {
-      margin-top: 0.75rem;
-      margin-bottom: 0.25rem;
-    }
-  }
-
-  .address span {
-    color: #7f7f7f;
-    display: flex;
-    gap: 0.25rem;
-    align-items: center;
-  }
-}
-
 .description,
 .menu-wrapper,
 .review-wrapper,
