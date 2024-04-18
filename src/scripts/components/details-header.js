@@ -4,14 +4,14 @@ import BookmarkComponent from "./bookmark-button";
 const noImage = require("../../public/images/no-image.png");
 
 export default class DetailsHeaderComponent extends HTMLElement {
-  idbService = undefined;
-  data = undefined;
+  _idbService = undefined;
+  _data = undefined;
 
   constructor(data, idbService) {
     super();
 
-    this.idbService = idbService;
-    this.data = data;
+    this._idbService = idbService;
+    this._data = data;
   }
 
   connectedCallback() {
@@ -19,7 +19,7 @@ export default class DetailsHeaderComponent extends HTMLElement {
   }
 
   generateCategoriesEl() {
-    const categories = this.data.categories.map(
+    const categories = this._data.categories.map(
       ({ name }) => `<span class="pill-item">${name}</span>`,
     );
     return categories.join("");
@@ -28,7 +28,7 @@ export default class DetailsHeaderComponent extends HTMLElement {
   createBookmarkButtonEl() {
     const wrapper = document.createElement("div");
     wrapper.className = "bookmark-wrapper";
-    const bookmarkButton = new BookmarkComponent(this.idbService, wrapper, this.data);
+    const bookmarkButton = new BookmarkComponent(this._idbService, wrapper, this._data);
     wrapper.appendChild(bookmarkButton);
 
     return wrapper;
@@ -40,22 +40,22 @@ export default class DetailsHeaderComponent extends HTMLElement {
 
     wrapperElement.innerHTML = `
       <img
-        src="${BASE_IMAGE_URL}/${this.data.pictureId}"
-        alt="Gambar ${this.data.name}"
+        src="${BASE_IMAGE_URL}/${this._data.pictureId}"
+        alt="Gambar ${this._data.name}"
         onerror="this.onerror=null;this.src='${noImage}';this.style.objectFit = 'contain';this.style.padding = '3rem'"
       />
 
       <div>
-        <h1>${this.data.name}</h1>
+        <h1>${this._data.name}</h1>
 
         <div class="address">
-          <h3>${this.data.city}</h3>
-          <span><icon-pin></icon-pin>${this.data.address}</span>
+          <h3>${this._data.city}</h3>
+          <span><icon-pin></icon-pin>${this._data.address}</span>
         </div>
 
         <div class="rating">
           <h3>Rating</h3>
-          <span class="rating-pill"><icon-star></icon-star> ${this.data.rating}</span>
+          <span class="rating-pill"><icon-star></icon-star> ${this._data.rating.toFixed(1)}</span>
         </div>
 
         <div class="categories">

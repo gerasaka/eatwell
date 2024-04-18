@@ -23,10 +23,8 @@ export default class FooterComponent extends HTMLElement {
 
         <h3>Dapatkan informasi terbaru dari kami</h3>
         <form class="mail">
-          <span>
-            <input type="text" id="email" class="form-field" placeholder="Masukkan email anda" />
-            <button type="submit">Kirim</button>
-          </span>
+          <input type="text" id="email" class="form-field" placeholder="Masukkan email anda" />
+          <button type="submit">Kirim</button>
         </form>
       </div>
 

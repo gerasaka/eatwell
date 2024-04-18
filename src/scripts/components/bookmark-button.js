@@ -1,13 +1,13 @@
 export default class BookmarkComponent extends HTMLElement {
-  idbService = undefined;
-  restaurantData = undefined;
+  _idbService = undefined;
+  _restaurantData = undefined;
   buttonWrapper = undefined;
 
   constructor(idbService, wrapper, restaurant) {
     super();
 
-    this.idbService = idbService;
-    this.restaurantData = restaurant;
+    this._idbService = idbService;
+    this._restaurantData = restaurant;
     this.buttonWrapper = wrapper;
   }
 
@@ -36,18 +36,18 @@ export default class BookmarkComponent extends HTMLElement {
      * check if restaurant exist in db then render active bookmark button
      * else render bookmark button
      */
-    if (await this.idbService.getRestaurant(this.restaurantData.id)) {
+    if (await this._idbService.getRestaurant(this._restaurantData.id)) {
       this.innerHTML = this.activeBookmarkButton;
       const bookmarkButtonEl = document.querySelector("#bookmark");
       bookmarkButtonEl.addEventListener("click", async () => {
-        await this.idbService.removevRestaurant(this.restaurantData.id);
+        await this._idbService.removevRestaurant(this._restaurantData.id);
         this.render();
       });
     } else {
       this.innerHTML = this.bookmarkButton;
       const bookmarkButtonEl = document.querySelector("#bookmark");
       bookmarkButtonEl.addEventListener("click", async () => {
-        await this.idbService.putRestaurant(this.restaurantData);
+        await this._idbService.putRestaurant(this._restaurantData);
         this.render();
       });
     }
