@@ -1,5 +1,6 @@
 import DetailsHeaderComponent from "../../components/details-header";
 import ReviewCardComponent from "../../components/review-card";
+import ReviewFormComponent from "../../components/review-form";
 import UrlParser from "../../routes/url-parser";
 import IndexDBService from "../../services/indexDB";
 
@@ -55,26 +56,38 @@ export default class DetailsPageComponent {
     return { foods: foods.join(""), drinks: drinks.join("") };
   }
 
-  createReviewEl() {
+  /**
+   * this method use to create review element and can be used to repaint review elment
+   * when receive customerReviews and id from api response
+   * @param customerReviews [optional] use when repaint element
+   * @param id [optional] use when repaint element
+   * @returns HTML element - review element
+   */
+  createReviewEl(customerReviews, id) {
     const wrapperElement = document.createElement("section");
     wrapperElement.className = "review-wrapper";
     wrapperElement.innerHTML = `<h2>Ulasan</h2>`;
 
     const reviewContainer = document.createElement("span");
     reviewContainer.className = "review-container";
-    const reviews = this.generateReviews();
+    const reviews = this.generateReviews(
+      customerReviews ?? this._restaurantDetails.customerReviews,
+    );
     reviews.forEach((reviewEl) => reviewContainer.appendChild(reviewEl));
 
+    wrapperElement.appendChild(
+      new ReviewFormComponent(this._restaurantService, id ?? this._restaurantDetails.id),
+    );
     wrapperElement.appendChild(reviewContainer);
     return wrapperElement;
   }
 
-  generateReviews() {
-    const reviews = this._restaurantDetails.customerReviews.map((review) => {
+  generateReviews(customerReviews) {
+    const reviewsEl = customerReviews.map((review) => {
       return new ReviewCardComponent(review);
     });
 
-    return reviews;
+    return reviewsEl;
   }
 
   /**

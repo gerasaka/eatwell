@@ -1,4 +1,9 @@
-import { DETAIL_RESTAURANT, LIST_RESTAURANT, SEARCH_RESTAURANT } from "../constant/api-path";
+import {
+  DETAIL_RESTAURANT,
+  LIST_RESTAURANT,
+  REVIEW_RESTAURANT,
+  SEARCH_RESTAURANT,
+} from "../constant/api-path";
 
 export class RestaurantService {
   async getRestaurantList() {
@@ -41,6 +46,25 @@ export class RestaurantService {
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log("error occurs when searching restaurant", err);
+    }
+
+    return result;
+  }
+
+  async submitReview(id, name, review) {
+    let result = null;
+
+    try {
+      const response = await fetch(REVIEW_RESTAURANT, {
+        method: "POST",
+        body: JSON.stringify({ id, name, review }),
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await response.json();
+      result = data.customerReviews;
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log("error occurs when submitting review", err);
     }
 
     return result;
