@@ -1,25 +1,17 @@
 import { BASE_IMAGE_URL } from "../constant/config";
+import BookmarkComponent from "./bookmark-button";
 
 const noImage = require("../../public/images/no-image.png");
 
 export default class DetailsHeaderComponent extends HTMLElement {
-  pictureId = "";
-  name = "";
-  city = "";
-  address = "";
-  rating = 0;
-  categories = [];
+  idbService = undefined;
+  data = undefined;
 
-  constructor(data) {
+  constructor(data, idbService) {
     super();
-    const { pictureId, name, city, address, rating, categories } = data;
 
-    this.pictureId = pictureId;
-    this.name = name;
-    this.city = city;
-    this.address = address;
-    this.rating = rating.toFixed(1);
-    this.categories = categories;
+    this.idbService = idbService;
+    this.data = data;
   }
 
   connectedCallback() {
@@ -27,8 +19,19 @@ export default class DetailsHeaderComponent extends HTMLElement {
   }
 
   generateCategoriesEl() {
-    const categories = this.categories.map(({ name }) => `<span class="pill-item">${name}</span>`);
+    const categories = this.data.categories.map(
+      ({ name }) => `<span class="pill-item">${name}</span>`,
+    );
     return categories.join("");
+  }
+
+  createBookmarkButtonEl() {
+    const wrapper = document.createElement("div");
+    wrapper.className = "bookmark-wrapper";
+    const bookmarkButton = new BookmarkComponent(this.idbService, wrapper, this.data);
+    wrapper.appendChild(bookmarkButton);
+
+    return wrapper;
   }
 
   render() {
@@ -37,22 +40,22 @@ export default class DetailsHeaderComponent extends HTMLElement {
 
     wrapperElement.innerHTML = `
       <img
-        src="${BASE_IMAGE_URL}/${this.pictureId}"
-        alt="Gambar ${this.name}"
+        src="${BASE_IMAGE_URL}/${this.data.pictureId}"
+        alt="Gambar ${this.data.name}"
         onerror="this.onerror=null;this.src='${noImage}';this.style.objectFit = 'contain';this.style.padding = '3rem'"
       />
 
       <div>
-        <h1>${this.name}</h1>
+        <h1>${this.data.name}</h1>
 
         <div class="address">
-          <h3>${this.city}</h3>
-          <span><icon-pin></icon-pin>${this.address}</span>
+          <h3>${this.data.city}</h3>
+          <span><icon-pin></icon-pin>${this.data.address}</span>
         </div>
 
         <div class="rating">
           <h3>Rating</h3>
-          <span class="rating-pill"><icon-star></icon-star> ${this.rating}</span>
+          <span class="rating-pill"><icon-star></icon-star> ${this.data.rating}</span>
         </div>
 
         <div class="categories">
@@ -63,6 +66,7 @@ export default class DetailsHeaderComponent extends HTMLElement {
     `;
 
     this.appendChild(wrapperElement);
+    this.appendChild(this.createBookmarkButtonEl());
   }
 }
 

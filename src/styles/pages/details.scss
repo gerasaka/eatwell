@@ -1,4 +1,5 @@
 .details-wrapper {
+  position: relative;
   padding: 0 2rem;
   color: $text-color;
 
@@ -69,4 +70,10 @@ h1 {
   @include tablet {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+#bookmark {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
 }
