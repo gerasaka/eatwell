@@ -4,7 +4,7 @@
   color: $text-color;
 
   @include desktop {
-    padding: 3rem;
+    padding: 0 3rem;
   }
 
   h2,
@@ -47,6 +47,10 @@ h1 {
     img {
       height: 100px;
       margin: auto;
+
+      @include desktop {
+        margin: auto 1rem;
+      }
     }
 
     ul {
@@ -76,4 +80,8 @@ h1 {
   position: absolute;
   top: 1rem;
   right: 3rem;
+
+  @include desktop {
+    right: 4rem;
+  }
 }
