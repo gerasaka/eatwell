@@ -5,12 +5,15 @@
   img {
     height: 10rem;
     margin: auto;
+    background-color: white;
+    border-radius: 50%;
+    overflow: visible;
   }
 
   h1 {
     font-size: 2rem;
     font-family: $sans-font;
-    margin: -1rem 0 0;
+    margin: -1.5rem 0 0;
   }
 }
 

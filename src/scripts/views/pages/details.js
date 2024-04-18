@@ -101,9 +101,26 @@ export default class DetailsPageComponent {
     return wrapperElement;
   }
 
+  errorDetailsHandlerEl() {
+    const errorWrapper = document.createElement("div");
+    errorWrapper.className = "error-wrapper";
+
+    errorWrapper.innerHTML = `
+      <h1>Hmmm... Terjadi kesalahan</h1>
+      <img src="images/illustration/bug.png" alt="gambar ilustrasi bug atau error">
+      <p>Gagal memuat halaman details, periksa koneksi anda atau coba beberapa saat lagi</p>
+    `;
+
+    return errorWrapper;
+  }
+
   async render(pageWrapper) {
     await this.loadRestaurantDetails();
-    // TODO: handle details page error
-    pageWrapper.appendChild(this.constructDetailsPage());
+
+    if (this._restaurantDetails) {
+      pageWrapper.appendChild(this.constructDetailsPage());
+    } else {
+      pageWrapper.appendChild(this.errorDetailsHandlerEl());
+    }
   }
 }

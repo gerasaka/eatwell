@@ -17,7 +17,7 @@ export class RestaurantService {
   }
 
   async getRestaurantDetails(id) {
-    let result = {};
+    let result = null;
 
     try {
       const response = await fetch(DETAIL_RESTAURANT + `/${id}`);
