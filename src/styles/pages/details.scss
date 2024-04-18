@@ -22,7 +22,7 @@ h1 {
 
 .description {
   padding: 1rem;
-  border: 1px solid $secondary-color;
+  background-color: $primary-color-light;
 }
 
 .menu-container {
@@ -39,7 +39,7 @@ h1 {
 
     > div {
       display: flex;
-      background-color: $primary-color-light;
+      border: 1px solid $secondary-color;
       gap: 1rem;
       padding: 1rem;
     }
