@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "eslint-config-prettier": "^9.1.0",
+    "idb": "^8.0.0",
     "regenerator-runtime": "^0.14.0",
     "sass": "^1.70.0",
     "sass-loader": "^14.1.0",
