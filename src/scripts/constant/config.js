@@ -1,1 +1,4 @@
 export const BASE_IMAGE_URL = `https://restaurant-api.dicoding.dev/images/medium`;
+export const DATABASE_NAME = "movie-catalogue-database";
+export const DATABASE_VERSION = 1;
+export const OBJECT_STORE_NAME = "movies";

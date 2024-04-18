@@ -7,6 +7,7 @@ import "./icons";
 
 import "./components";
 import App from "./views/app";
+import swRegister from "./utils/sw-register";
 
 const app = new App();
 
@@ -14,6 +15,7 @@ window.addEventListener("hashchange", () => {
   app.renderPage();
 });
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   app.renderPage();
+  await swRegister();
 });

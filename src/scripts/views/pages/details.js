@@ -1,13 +1,16 @@
 import DetailsHeaderComponent from "../../components/details-header";
 import ReviewCardComponent from "../../components/review-card";
 import UrlParser from "../../routes/url-parser";
+import IndexDBService from "../../services/indexDB";
 
 export default class DetailsPageComponent {
   _restaurantService = undefined;
+  _idbService = undefined;
   _restaurantDetails = undefined;
 
   constructor(restaurantService) {
     this._restaurantService = restaurantService;
+    this._idbService = new IndexDBService();
   }
 
   async loadRestaurantDetails() {
@@ -86,7 +89,7 @@ export default class DetailsPageComponent {
     descEl.className = "description";
     descEl.innerText = this._restaurantDetails.description;
 
-    const detailsHeaderEl = new DetailsHeaderComponent(this._restaurantDetails);
+    const detailsHeaderEl = new DetailsHeaderComponent(this._restaurantDetails, this._idbService);
     const menuEl = this.createMenuEl();
     const reviewEl = this.createReviewEl();
 
@@ -100,6 +103,7 @@ export default class DetailsPageComponent {
 
   async render(pageWrapper) {
     await this.loadRestaurantDetails();
+    // TODO: handle details page error
     pageWrapper.appendChild(this.constructDetailsPage());
   }
 }
