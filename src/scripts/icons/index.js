@@ -5,5 +5,15 @@ import PinIcon from "./pin";
 import InstagramIcon from "./instagram";
 import XIcon from "./x";
 import FacebookIcon from "./facebook";
+import BookmarkIcon from "./bookmark";
 
-export { HamburgerIcon, ChevronDownIcon, StarIcon, PinIcon, InstagramIcon, XIcon, FacebookIcon };
+export {
+  HamburgerIcon,
+  ChevronDownIcon,
+  StarIcon,
+  PinIcon,
+  InstagramIcon,
+  XIcon,
+  FacebookIcon,
+  BookmarkIcon,
+};

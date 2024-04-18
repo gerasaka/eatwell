@@ -1,26 +1,19 @@
 export default class StarIcon extends HTMLElement {
-  size = "";
-  color = "";
-
-  constructor(size = "16", color = "currentColor") {
-    super();
-
-    this.size = size;
-    this.color = color;
-  }
-
   connectedCallback() {
     this.render();
   }
 
   render() {
+    const size = this.getAttribute("size") ?? "16";
+    const color = this.getAttribute("color") ?? "currentColor";
+
     this.innerHTML = `
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        height="${this.size}"
-        width="${this.size}"
+        height="${size}"
+        width="${size}"
         viewBox="0 0 24 24"
-        fill="currentColor"
+        fill="${color}"
       >
         <path
           fill-rule="evenodd"

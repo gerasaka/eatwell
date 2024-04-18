@@ -1,28 +1,21 @@
 export default class HamburgerIcon extends HTMLElement {
-  size = "";
-  color = "";
-
-  constructor(size = "24", color = "currentColor") {
-    super();
-
-    this.size = size;
-    this.color = color;
-  }
-
   connectedCallback() {
     this.render();
   }
 
   render() {
+    const size = this.getAttribute("size") ?? "24";
+    const color = this.getAttribute("color") ?? "currentColor";
+
     this.innerHTML = `
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        height="${this.size}"
-        width="24px"
+        height="${size}"
+        width="${size}"
         viewBox="0 0 24 24"
         stroke-width="2"
-        stroke="${this.color}"
+        stroke="${color}"
       >
         <path
           stroke-linecap="round"
