@@ -14,7 +14,7 @@ export default class HomePageComponent {
     wrapperElement.innerHTML = `
       <img
         id="carousel-item"
-        src="../images/heroes/hero-image_1.jpg"
+        src="images/heroes/hero-image_1.jpg"
         alt="gambar hero"
       />
 
@@ -50,7 +50,7 @@ export default class HomePageComponent {
       const emptyWrapper = document.createElement("div");
       emptyWrapper.className = "empty-wrapper";
       emptyWrapper.innerHTML = `
-        <img src="../images/illustration/empty.png" alt="ilustrasi list restoran kosong" />
+        <img src="images/illustration/empty.png" alt="ilustrasi list restoran kosong" />
         <p tabindex="0">Sedang terjadi masalah atau tidak ada restoran untuk ditampilkan</p>
       `;
 

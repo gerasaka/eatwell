@@ -73,7 +73,7 @@ export default class RestaurantService {
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log("error occurs when submitting review", err);
-      showToast("failed", "Gagal menambahkan ulasan");
+      showToast("failed", "Terjadi kesalahan, gagal menambahkan ulasan");
     }
 
     return result;
