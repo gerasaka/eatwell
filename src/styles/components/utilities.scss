@@ -105,3 +105,28 @@ label {
   color: $primary-color-light;
 }
 // ---- toast ----
+
+// ---- loading ----
+#loading {
+  height: 50svh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  img {
+    width: 10rem;
+  }
+
+  span {
+    color: $text-color;
+    text-align: center;
+  }
+}
+// ---- loading ----

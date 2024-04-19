@@ -4,13 +4,15 @@ import {
   REVIEW_RESTAURANT,
   SEARCH_RESTAURANT,
 } from "../constant/api-path";
+import { hideLoader, showLoader } from "../utils/loader-helper";
 import { showToast } from "../utils/toast-helper";
 
-export class RestaurantService {
+export default class RestaurantService {
   async getRestaurantList() {
     let result = [];
 
     try {
+      showLoader();
       const response = await fetch(LIST_RESTAURANT);
       const data = await response.json();
       result = data.restaurants;
@@ -19,6 +21,7 @@ export class RestaurantService {
       console.log("error occurs when fetch restaurant list", err);
     }
 
+    hideLoader();
     return result;
   }
 
@@ -26,6 +29,7 @@ export class RestaurantService {
     let result = null;
 
     try {
+      showLoader();
       const response = await fetch(DETAIL_RESTAURANT + `/${id}`);
       const data = await response.json();
       result = data.restaurant;
@@ -34,9 +38,11 @@ export class RestaurantService {
       console.log("error occurs when fetch restaurant details", err);
     }
 
+    hideLoader();
     return result;
   }
 
+  // method currently unused
   async searchRestaurant(query) {
     let result = [];
 
