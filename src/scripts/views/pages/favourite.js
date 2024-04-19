@@ -12,7 +12,7 @@ export default class FavouritePageComponent {
     return `
       <div class="favourite-header">
         <img src="images/illustration/files.png" alt="gambar ilustrasi file">
-        <h1>Daftar Restoran Favorit</h1>
+        <h1 tabindex="0">Daftar Restoran Favorit</h1>
       </div>
     `;
   }

@@ -19,9 +19,9 @@ export default class ReviewCardComponent extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="review-item">
-        <h3>${this.author}</h3>
-        <p>${this.date}</p>
-        <p>${this.content}</p>
+        <h3 tabindex="0">${this.author}</h3>
+        <p tabindex="0">${this.date}</p>
+        <p tabindex="0">${this.content}</p>
       </div>
     `;
   }

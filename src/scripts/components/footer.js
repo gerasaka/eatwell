@@ -17,7 +17,7 @@ export default class FooterComponent extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="social">
-        <h3>Kontak kami</h3>
+        <h3 tabindex="0">Kontak kami</h3>
         <span>
           <a href="#" class="icon-wrapper">
             <icon-instagram class="social-icon"></icon-instagram>
@@ -32,7 +32,7 @@ export default class FooterComponent extends HTMLElement {
           </a>
         </span>
 
-        <h3>Dapatkan informasi terbaru dari kami</h3>
+        <h3 tabindex="0">Dapatkan informasi terbaru dari kami</h3>
         <form class="mail">
           <input type="text" id="email" class="form-field" placeholder="Masukkan email anda" />
           <button id="submit-email">Kirim</button>

@@ -22,7 +22,7 @@ export default class DetailsPageComponent {
   createMenuEl() {
     const wrapperElement = document.createElement("section");
     wrapperElement.className = "menu-wrapper";
-    wrapperElement.innerHTML = `<h2>Menu</h2>`;
+    wrapperElement.innerHTML = `<h2 tabindex="0">Menu</h2>`;
 
     const { foods, drinks } = this.generateMenuEl();
 
@@ -30,14 +30,14 @@ export default class DetailsPageComponent {
     menuContainer.className = "menu-container";
     menuContainer.innerHTML = `
       <div class="menu-display">
-        <p>Makanan</p>
+        <p tabindex="0">Makanan</p>
         <div>
           <img src="images/illustration/food.png" alt="ilustrasi makanan" />
           <ul>${foods}</ul>
         </div>
       </div>
       <div class="menu-display">
-        <p>Minuman</p>
+        <p tabindex="0">Minuman</p>
         <div>
           <img src="images/illustration/drink.png" alt="ilustrasi minuman" />
           <ul>${drinks}</ul>
@@ -50,8 +50,12 @@ export default class DetailsPageComponent {
   }
 
   generateMenuEl() {
-    const foods = this._restaurantDetails.menus.foods.map(({ name }) => `<li>${name}</li>`);
-    const drinks = this._restaurantDetails.menus.drinks.map(({ name }) => `<li>${name}</li>`);
+    const foods = this._restaurantDetails.menus.foods.map(
+      ({ name }) => `<li tabindex="0">${name}</li>`,
+    );
+    const drinks = this._restaurantDetails.menus.drinks.map(
+      ({ name }) => `<li tabindex="0">${name}</li>`,
+    );
 
     return { foods: foods.join(""), drinks: drinks.join("") };
   }
@@ -66,7 +70,7 @@ export default class DetailsPageComponent {
   createReviewEl(customerReviews, id) {
     const wrapperElement = document.createElement("section");
     wrapperElement.className = "review-wrapper";
-    wrapperElement.innerHTML = `<h2>Ulasan</h2>`;
+    wrapperElement.innerHTML = `<h2 tabindex="0">Ulasan Pelanggan</h2>`;
 
     const reviewContainer = document.createElement("span");
     reviewContainer.className = "review-container";
@@ -100,6 +104,7 @@ export default class DetailsPageComponent {
 
     const descEl = document.createElement("p");
     descEl.className = "description";
+    descEl.tabIndex = "0";
     descEl.innerText = this._restaurantDetails.description;
 
     const detailsHeaderEl = new DetailsHeaderComponent(this._restaurantDetails, this._idbService);

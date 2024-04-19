@@ -47,9 +47,9 @@ export default class ReviewFormComponent extends HTMLElement {
   render() {
     this.innerHTML = `
       <form class="review-form">
-        <label for="author">Nama</label>
+        <label for="author" tabindex="0">Nama</label>
         <input type="text" id="author" name="name" class="form-field" placeholder="Masukkan nama anda" />
-        <label for="review">Ulasan</label>
+        <label for="review" tabindex="0">Ulasan</label>
         <textarea name="review" id="review" class="form-field" cols="30" rows="4" placeholder="Tulis ulasan anda"></textarea>
         <button id="submit-review">Kirim</button>
       </form>
