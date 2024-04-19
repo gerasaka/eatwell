@@ -21,7 +21,14 @@ export default class IndexDBService {
   }
 
   async putRestaurant(restaurant) {
-    return (await this.dbPromise).put(OBJECT_STORE_NAME, restaurant);
+    const extractedData = {
+      id: restaurant.id,
+      pictureId: restaurant.pictureId,
+      name: restaurant.name,
+      city: restaurant.city,
+      rating: restaurant.rating,
+    };
+    return (await this.dbPromise).put(OBJECT_STORE_NAME, extractedData);
   }
 
   async removevRestaurant(id) {
