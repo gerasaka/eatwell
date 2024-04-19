@@ -36,12 +36,20 @@ module.exports = {
       ],
     }),
     new WorkboxWebpackPlugin.GenerateSW({
+      skipWaiting: true,
       swDest: "./sw.bundle.js",
       runtimeCaching: [
         {
-          urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
-          handler: "CacheFirst",
-          options: { cacheName: "images-cache" },
+          urlPattern: ({ url }) =>
+            url.href.startsWith("https://restaurant-api.dicoding.dev/images/medium"),
+          handler: "StaleWhileRevalidate",
+          options: {
+            cacheName: "dicoding-restaurant-image-api",
+            expiration: {
+              maxEntries: 30,
+              maxAgeSeconds: 7 * 24 * 60 * 60,
+            },
+          },
         },
         {
           urlPattern: ({ url }) => url.href.startsWith("https://restaurant-api.dicoding.dev"),
@@ -49,10 +57,11 @@ module.exports = {
           options: { cacheName: "dicoding-restaurant-api" },
         },
         {
-          urlPattern: ({ url }) =>
-            url.href.startsWith("https://restaurant-api.dicoding.dev/images/medium"),
+          urlPattern: ({ url }) => url.href.startsWith("https://fonts.gstatic.com"),
           handler: "StaleWhileRevalidate",
-          options: { cacheName: "dicoding-restaurant-image-api" },
+          options: {
+            cacheName: "google-fonts-webfonts",
+          },
         },
       ],
     }),
