@@ -1,11 +1,10 @@
 import { RestaurantCardComponent } from "../../components";
-import IndexDBService from "../../services/indexDB";
 
 export default class FavouritePageComponent {
   _idbService = undefined;
 
-  constructor() {
-    this._idbService = new IndexDBService();
+  constructor(_, idbService) {
+    this._idbService = idbService;
   }
 
   createFavouriteHeaderEl() {
