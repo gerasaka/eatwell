@@ -11,6 +11,16 @@ export default class App {
     this._mainContent = document.querySelector("main");
     this._restaurantService = new RestaurantService();
     this._idbService = new IndexDBService();
+
+    this.initializeSkipLink();
+  }
+
+  initializeSkipLink() {
+    const skipContentEl = document.querySelector(".skip-link");
+    skipContentEl.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector("#content").focus();
+    });
   }
 
   async renderPage() {

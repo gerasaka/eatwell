@@ -61,7 +61,7 @@
   }
 
   .restaurant-info {
-    padding: 1rem 0.5rem 0;
+    padding: 0 0.5rem;
 
     h2 {
       font-family: $sans-font;
@@ -71,6 +71,11 @@
       a {
         text-decoration: none;
         color: inherit;
+        display: flex;
+        align-items: flex-end;
+        width: fit-content;
+        min-height: 44px;
+        min-width: 44px;
       }
 
       a:hover {
