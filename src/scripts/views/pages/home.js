@@ -16,7 +16,6 @@ export default class HomePageComponent {
         id="carousel-item"
         src="../images/heroes/hero-image_1.jpg"
         alt="gambar hero"
-        tabindex="0"
       />
 
       <icon-chevron-down class="scroll-down"></icon-chevron-down>
@@ -52,7 +51,7 @@ export default class HomePageComponent {
       emptyWrapper.className = "empty-wrapper";
       emptyWrapper.innerHTML = `
         <img src="../images/illustration/empty.png" alt="ilustrasi list restoran kosong" />
-        <p>Sedang terjadi masalah atau tidak ada restoran untuk ditampilkan</p>
+        <p tabindex="0">Sedang terjadi masalah atau tidak ada restoran untuk ditampilkan</p>
       `;
 
       restaurantContainer.appendChild(emptyWrapper);

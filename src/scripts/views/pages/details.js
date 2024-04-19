@@ -123,9 +123,9 @@ export default class DetailsPageComponent {
     errorWrapper.className = "error-wrapper";
 
     errorWrapper.innerHTML = `
-      <h1>Hmmm... Terjadi kesalahan</h1>
+      <h1 tabindex="0">Hmmm... Terjadi kesalahan</h1>
       <img src="images/illustration/bug.png" alt="gambar ilustrasi bug atau error">
-      <p>Gagal memuat halaman details, periksa koneksi anda atau coba beberapa saat lagi</p>
+      <p tabindex="0">Gagal memuat halaman details, periksa koneksi anda atau coba beberapa saat lagi</p>
     `;
 
     return errorWrapper;

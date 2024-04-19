@@ -39,7 +39,7 @@ export default class FavouritePageComponent {
       emptyWrapper.className = "empty-wrapper";
       emptyWrapper.innerHTML = `
         <img src="../images/illustration/flying-kite.png" alt="ilustrasi list restoran kosong" />
-        <p>Tidak ada restoran favorit, mulai simpan restoran untuk akses yang lebih mudah dan cepat</p>
+        <p tabindex="0">Tidak ada restoran favorit, mulai simpan restoran untuk akses yang lebih mudah dan cepat</p>
       `;
 
       restaurantContainer.appendChild(emptyWrapper);

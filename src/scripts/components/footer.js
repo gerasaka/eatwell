@@ -19,14 +19,14 @@ export default class FooterComponent extends HTMLElement {
       <div class="social">
         <h3 tabindex="0">Kontak kami</h3>
         <span>
-          <a href="#" class="icon-wrapper">
+          <a href="https://www.instagram.com/" class="icon-wrapper" aria-label="instagram">
             <icon-instagram class="social-icon"></icon-instagram>
             <span class="social-label">Instagram</span>
           </a>
-          <a href="#" class="icon-wrapper">
+          <a href="https://twitter.com/" class="icon-wrapper" aria-label="x">
             <icon-x class="social-icon"></icon-x> 
             <span class="social-label">X</span></a>
-          <a href="#" class="icon-wrapper">
+          <a href="https://www.facebook.com/" class="icon-wrapper" aria-label="facebook">
             <icon-facebook class="social-icon"></icon-facebook>
             <span class="social-label">Facebook</span>
           </a>

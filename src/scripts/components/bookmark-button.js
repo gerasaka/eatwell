@@ -27,7 +27,7 @@ export default class BookmarkComponent extends HTMLElement {
 
   get activeBookmarkButton() {
     return `
-      <button aria-label="Simpan restoran ini" id="bookmark">
+      <button aria-label="Hapus restoran dari favorit" id="bookmark">
         <icon-bookmark size="20" bookmark="1"></icon-bookmark>
       </button>
     `;
