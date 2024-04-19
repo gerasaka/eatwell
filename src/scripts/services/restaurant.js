@@ -4,6 +4,7 @@ import {
   REVIEW_RESTAURANT,
   SEARCH_RESTAURANT,
 } from "../constant/api-path";
+import { showToast } from "../utils/toast-helper";
 
 export class RestaurantService {
   async getRestaurantList() {
@@ -62,9 +63,11 @@ export class RestaurantService {
       });
       const data = await response.json();
       result = data.customerReviews;
+      showToast("success", "Berhasil menambah ulasan");
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log("error occurs when submitting review", err);
+      showToast("failed", "Gagal menambahkan ulasan");
     }
 
     return result;

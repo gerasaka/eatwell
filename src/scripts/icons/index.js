@@ -6,6 +6,8 @@ import InstagramIcon from "./instagram";
 import XIcon from "./x";
 import FacebookIcon from "./facebook";
 import BookmarkIcon from "./bookmark";
+import CheckIcon from "./check";
+import CrossIcon from "./cross";
 
 export {
   HamburgerIcon,
@@ -16,4 +18,6 @@ export {
   XIcon,
   FacebookIcon,
   BookmarkIcon,
+  CheckIcon,
+  CrossIcon,
 };

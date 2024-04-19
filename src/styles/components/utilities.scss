@@ -15,6 +15,10 @@ button {
 
 button:hover {
   box-shadow: 2px 2px 0 $secondary-color;
+
+  @include tablet {
+    box-shadow: 4px 4px 0 $secondary-color;
+  }
 }
 
 button:active {
@@ -71,3 +75,33 @@ label {
   border-radius: 1rem;
 }
 // ---- pill ----
+
+// ---- toast ----
+#toast {
+  position: fixed;
+  top: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  @include tablet {
+    top: 100px;
+  }
+}
+
+.toast-success {
+  background-color: $secondary-color;
+  color: $text-color;
+}
+
+.toast-failed {
+  background-color: #cc6666;
+  color: $primary-color-light;
+}
+// ---- toast ----

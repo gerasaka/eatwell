@@ -1,3 +1,4 @@
+import { showToast } from "../utils/toast-helper";
 import DetailsPageComponent from "../views/pages/details";
 
 export default class ReviewFormComponent extends HTMLElement {
@@ -17,6 +18,12 @@ export default class ReviewFormComponent extends HTMLElement {
   async submitReview() {
     const name = this.querySelector("#author").value;
     const review = this.querySelector("#review").value;
+
+    if (!name || !review) {
+      showToast("failed", "Field nama dan ulasan wajib diisi");
+      return;
+    }
+
     const response = await this._restaurantService.submitReview(this._restaurantId, name, review);
     if (response) this.afterSubmit(response);
   }

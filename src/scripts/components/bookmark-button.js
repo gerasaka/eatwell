@@ -1,3 +1,5 @@
+import { showToast } from "../utils/toast-helper";
+
 export default class BookmarkComponent extends HTMLElement {
   _idbService = undefined;
   _restaurantData = undefined;
@@ -18,7 +20,7 @@ export default class BookmarkComponent extends HTMLElement {
   get bookmarkButton() {
     return `
       <button aria-label="Simpan restoran ini" id="bookmark">
-        <span>Simpan ke favorit</span> <icon-bookmark bookmark="0"></icon-bookmark>
+        <icon-bookmark size="20" bookmark="0"></icon-bookmark>
       </button>
     `;
   }
@@ -26,7 +28,7 @@ export default class BookmarkComponent extends HTMLElement {
   get activeBookmarkButton() {
     return `
       <button aria-label="Simpan restoran ini" id="bookmark">
-        <span>Hapus dari favorit</span> <icon-bookmark bookmark="1"></icon-bookmark>
+        <icon-bookmark size="20" bookmark="1"></icon-bookmark>
       </button>
     `;
   }
@@ -42,6 +44,7 @@ export default class BookmarkComponent extends HTMLElement {
       bookmarkButtonEl.addEventListener("click", async () => {
         await this._idbService.removevRestaurant(this._restaurantData.id);
         this.render();
+        showToast("success", "Restoran dihapus dari  daftar favorit");
       });
     } else {
       this.innerHTML = this.bookmarkButton;
@@ -49,6 +52,7 @@ export default class BookmarkComponent extends HTMLElement {
       bookmarkButtonEl.addEventListener("click", async () => {
         await this._idbService.putRestaurant(this._restaurantData);
         this.render();
+        showToast("success", "Restoran ditambahkan ke daftar favorit");
       });
     }
   }
