@@ -1,10 +1,6 @@
 import { showToast } from "../utils/toast-helper";
 
 export default class BookmarkComponent extends HTMLElement {
-  _idbService = undefined;
-  _restaurantData = undefined;
-  buttonWrapper = undefined;
-
   constructor(idbService, wrapper, restaurant) {
     super();
 

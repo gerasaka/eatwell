@@ -4,8 +4,6 @@ import ReviewFormComponent from "../../components/review-form";
 import UrlParser from "../../routes/url-parser";
 
 export default class DetailsPageComponent {
-  _restaurantService = undefined;
-  _idbService = undefined;
   _restaurantDetails = undefined;
 
   constructor(restaurantService, idbService) {

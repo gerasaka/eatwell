@@ -2,9 +2,6 @@ import { showToast } from "../utils/toast-helper";
 import DetailsPageComponent from "../views/pages/details";
 
 export default class ReviewFormComponent extends HTMLElement {
-  _restaurantService = undefined;
-  _restaurantId;
-
   constructor(restaurantService, restaurantId) {
     super();
     this._restaurantService = restaurantService;

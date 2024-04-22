@@ -4,9 +4,6 @@ import IndexDBService from "../services/indexDB";
 import RestaurantService from "../services/restaurant";
 
 export default class App {
-  _mainContent = undefined;
-  _restaurantService = undefined;
-
   constructor() {
     this._mainContent = document.querySelector("main");
     this._restaurantService = new RestaurantService();

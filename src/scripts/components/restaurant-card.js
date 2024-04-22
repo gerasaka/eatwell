@@ -3,12 +3,6 @@ import { BASE_IMAGE_URL } from "../constant/config";
 const noImage = require("../../public/images/no-image.png");
 
 export default class RestaurantCardComponent extends HTMLElement {
-  id = "";
-  imageUrl = "";
-  name = "";
-  location = "";
-  rating = 0;
-
   constructor(data) {
     super();
     const { id, pictureId, name, city, rating } = data;

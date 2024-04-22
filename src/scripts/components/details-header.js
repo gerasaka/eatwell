@@ -4,9 +4,6 @@ import BookmarkComponent from "./bookmark-button";
 const noImage = require("../../public/images/no-image.png");
 
 export default class DetailsHeaderComponent extends HTMLElement {
-  _idbService = undefined;
-  _data = undefined;
-
   constructor(data, idbService) {
     super();
 

@@ -1,8 +1,6 @@
 import { RestaurantCardComponent } from "../../components";
 
 export default class FavouritePageComponent {
-  _idbService = undefined;
-
   constructor(_, idbService) {
     this._idbService = idbService;
   }

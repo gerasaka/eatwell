@@ -2,8 +2,6 @@ import { openDB } from "idb";
 import { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } from "../constant/config";
 
 export default class IndexDBService {
-  dbPromise = new Promise(() => {});
-
   constructor() {
     this.dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
       upgrade(database) {

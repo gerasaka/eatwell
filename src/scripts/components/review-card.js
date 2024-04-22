@@ -1,8 +1,4 @@
 export default class ReviewCardComponent extends HTMLElement {
-  author = "";
-  date = "";
-  content = "";
-
   constructor(data) {
     super();
     const { name, date, review } = data;

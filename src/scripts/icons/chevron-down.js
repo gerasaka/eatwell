@@ -1,6 +1,4 @@
 export default class ChevronDownIcon extends HTMLElement {
-  color = "";
-
   connectedCallback() {
     this.render();
   }

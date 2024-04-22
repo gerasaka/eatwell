@@ -2,8 +2,6 @@ import { RestaurantCardComponent } from "../../components";
 import animateCarousel from "../../utils/hero";
 
 export default class HomePageComponent {
-  _restaurantService = undefined;
-
   constructor(restaurantService) {
     this._restaurantService = restaurantService;
   }
