@@ -34,7 +34,7 @@ export default class FooterComponent extends HTMLElement {
 
         <h3 tabindex="0">Dapatkan informasi terbaru dari kami</h3>
         <form class="mail">
-          <input type="text" id="email" class="form-field" placeholder="Masukkan email anda" />
+          <input aria-label="field input email" type="text" id="email" class="form-field" placeholder="Masukkan email anda" />
           <button id="submit-email">Kirim</button>
         </form>
       </div>
