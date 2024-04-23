@@ -1,0 +1,35 @@
+.search-form {
+  display: flex;
+  gap: 1rem;
+  color: #473829;
+  justify-content: center;
+  font-family: $sans-font;
+  margin-bottom: 1.5rem;
+  width: 100%;
+
+  @media screen and (min-width: 450px) and (max-width: 499px) {
+    margin-bottom: 0.5rem;
+    padding: 0 1.5rem;
+  }
+
+  @include tablet {
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  input {
+    flex: 1;
+
+    @include tablet {
+      min-width: 25rem;
+      flex: 0;
+    }
+  }
+
+  button {
+    padding: 0 1rem;
+    height: 44px;
+    display: flex;
+    gap: 0.25rem;
+  }
+}

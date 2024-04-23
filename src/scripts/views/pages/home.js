@@ -1,4 +1,4 @@
-import { RestaurantCardComponent } from "../../components";
+import { RestaurantCardComponent, SearchBarComponent } from "../../components";
 import animateCarousel from "../../utils/hero";
 
 export default class HomePageComponent {
@@ -33,11 +33,17 @@ export default class HomePageComponent {
     return wrapperElement;
   }
 
-  async generateRestaurantList() {
+  /**
+   * this method use to create restaurant list element and can be used to repaint elment
+   * when receive restaurants param from api response
+   * @param restaurants [optional] use when repaint element
+   * @returns HTML element - review element
+   */
+  async generateRestaurantList(restaurants) {
     const restaurantContainer = document.createElement("div");
     restaurantContainer.className = "restaurant-container";
 
-    const restaurantList = await this._restaurantService.getRestaurantList();
+    const restaurantList = restaurants ?? (await this._restaurantService.getRestaurantList());
 
     if (restaurantList.length) {
       restaurantList.forEach((restaurant) => {
@@ -61,6 +67,9 @@ export default class HomePageComponent {
   async render(pageWrapper) {
     const carouselEl = this.createCarouselEl();
     const restaurantListEl = this.createRestaurantListEl();
+    const searchBarEl = new SearchBarComponent(this._restaurantService);
+
+    restaurantListEl.appendChild(searchBarEl);
     restaurantListEl.appendChild(await this.generateRestaurantList());
 
     pageWrapper.appendChild(carouselEl);

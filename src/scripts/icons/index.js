@@ -8,6 +8,7 @@ import FacebookIcon from "./facebook";
 import BookmarkIcon from "./bookmark";
 import CheckIcon from "./check";
 import CrossIcon from "./cross";
+import SearchIcon from "./search";
 
 export {
   HamburgerIcon,
@@ -20,4 +21,5 @@ export {
   BookmarkIcon,
   CheckIcon,
   CrossIcon,
+  SearchIcon,
 };
