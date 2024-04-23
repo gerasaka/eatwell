@@ -8,8 +8,9 @@ const loadingEl = `
   </div>
 `;
 
-export const showLoader = () => {
-  document.getElementById("content").innerHTML = loadingEl;
+export const showLoader = (parentTarget) => {
+  if (parentTarget) document.getElementById(parentTarget).innerHTML = loadingEl;
+  else document.getElementById("content").innerHTML = loadingEl;
 };
 
 export const hideLoader = () => {

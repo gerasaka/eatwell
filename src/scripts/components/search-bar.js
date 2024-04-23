@@ -1,4 +1,3 @@
-import { showToast } from "../utils/toast-helper";
 import HomePageComponent from "../views/pages/home";
 
 export default class SearchBarComponent extends HTMLElement {
@@ -13,29 +12,23 @@ export default class SearchBarComponent extends HTMLElement {
 
   async searchRestaurant() {
     const query = this.querySelector("#query").value;
-
-    if (!query) {
-      showToast("failed", "Field nama dan ulasan wajib diisi");
-      return;
-    }
-
+    document.querySelector(".restaurant-container").remove();
     const response = await this._restaurantService.searchRestaurant(query);
-    if (response) this.afterSearch(response);
+    await this.afterSearch(response);
   }
 
   /**
    * this method use to repaint restaurant list element
    * @param response response restaurant list api from search restaurant
    */
-  afterSearch(response) {
+  async afterSearch(response) {
     const form = this.querySelector(".search-form");
     form.reset();
 
-    const newRestaurantListEl = new HomePageComponent(
+    const newRestaurantListEl = await new HomePageComponent(
       this._restaurantService,
     ).generateRestaurantList(response);
-    document.querySelector(".restaurant-container").remove();
-    document.querySelector("#main").appendChild(newRestaurantListEl);
+    document.querySelector(".list-wrapper").appendChild(newRestaurantListEl);
   }
 
   render() {
@@ -44,6 +37,7 @@ export default class SearchBarComponent extends HTMLElement {
         <input aria-label="field input cari restoran" type="text" id="query" name="query" class="form-field" placeholder="Masukkan nama, kategori, atau menu" />
         <button id="submit-search"><icon-search></icon-search> Cari</button>
       </form>
+      <span id="loading-wrapper"></span>
     `;
 
     this.querySelector("#submit-search").addEventListener("click", (e) => {

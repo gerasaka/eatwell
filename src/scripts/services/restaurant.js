@@ -42,11 +42,11 @@ export default class RestaurantService {
     return result;
   }
 
-  // method currently unused
   async searchRestaurant(query) {
     let result = [];
 
     try {
+      showLoader("loading-wrapper");
       const response = await fetch(SEARCH_RESTAURANT + query);
       const data = await response.json();
       result = data.restaurants;
@@ -55,6 +55,7 @@ export default class RestaurantService {
       console.log("error occurs when searching restaurant", err);
     }
 
+    hideLoader();
     return result;
   }
 
