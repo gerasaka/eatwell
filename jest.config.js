@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+const path = require("path");
+
 /** @type {import('jest').Config} */
 const config = {
   testMatch: ["**/tests/**/*.test.[jt]s?(x)"],
@@ -11,11 +13,15 @@ const config = {
   setupFiles: ["fake-indexeddb/auto"],
 
   // The test environment that will be used for testing
-  testEnvironment: "./FixJSDOMEnvironment.js",
+  testEnvironment: "jsdom",
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.(js|ts)$": "babel-jest",
+    "^.+\\.(js|ts|tsx)$": "babel-jest",
+  },
+
+  moduleNameMapper: {
+    "\\.(jpg|jpeg|png|gif|svg)$": path.resolve(__dirname, "./tests/mocks/static-file.js"),
   },
 };
 
