@@ -4,13 +4,18 @@ import { MOCK_KAFE_KITA, MOCK_MELTING_POT } from "./mocks/restaurant-details";
 describe("IndexDBService", () => {
   const _idbService = new IndexDBService();
 
+  const addRestaurantData = async () => {
+    await _idbService.putRestaurant(MOCK_MELTING_POT);
+
+    expect(await _idbService.getAllBookmark()).toHaveLength(1);
+  };
+
   describe("putRestaurant function", () => {
     it("should be able to put new data to DB", async () => {
       expect(await _idbService.getAllBookmark()).toHaveLength(0);
 
-      await _idbService.putRestaurant(MOCK_MELTING_POT);
+      await addRestaurantData();
 
-      expect(await _idbService.getAllBookmark()).toHaveLength(1);
       expect(await _idbService.getRestaurant(MOCK_MELTING_POT.id)).toHaveProperty(
         "id",
         MOCK_MELTING_POT.id,
@@ -20,17 +25,15 @@ describe("IndexDBService", () => {
     });
 
     it("should not add duplicate restaurant data", async () => {
-      await _idbService.putRestaurant(MOCK_MELTING_POT);
+      await addRestaurantData();
 
-      expect(await _idbService.getAllBookmark()).toHaveLength(1);
       expect(await _idbService.getRestaurant(MOCK_MELTING_POT.id)).toHaveProperty(
         "id",
         MOCK_MELTING_POT.id,
       );
 
-      await _idbService.putRestaurant(MOCK_MELTING_POT);
+      await addRestaurantData();
 
-      expect(await _idbService.getAllBookmark()).toHaveLength(1);
       expect(await _idbService.getRestaurant(MOCK_MELTING_POT.id)).toHaveProperty(
         "id",
         MOCK_MELTING_POT.id,
@@ -41,6 +44,7 @@ describe("IndexDBService", () => {
 
     it("should not add data when the restaurant param is not given", async () => {
       expect(await _idbService.putRestaurant()).toEqual({});
+      expect(await _idbService.getAllBookmark()).toHaveLength(0);
     });
   });
 
@@ -52,10 +56,7 @@ describe("IndexDBService", () => {
     });
 
     it("should return all bookmarked restaurant if any", async () => {
-      await _idbService.putRestaurant(MOCK_MELTING_POT);
-
-      expect(await _idbService.getAllBookmark()).toHaveLength(1);
-
+      await addRestaurantData();
       await _idbService.putRestaurant(MOCK_KAFE_KITA);
 
       expect(await _idbService.getAllBookmark()).toHaveLength(2);
@@ -67,7 +68,7 @@ describe("IndexDBService", () => {
 
   describe("removevRestaurant function", () => {
     it("should be able to remove restaurant with given id", async () => {
-      await _idbService.putRestaurant(MOCK_MELTING_POT);
+      await addRestaurantData();
       await _idbService.putRestaurant(MOCK_KAFE_KITA);
 
       expect(await _idbService.getAllBookmark()).toHaveLength(2);
@@ -82,10 +83,7 @@ describe("IndexDBService", () => {
     });
 
     it("should not remove restaurant if the id param given is empty or not found", async () => {
-      await _idbService.putRestaurant(MOCK_MELTING_POT);
-
-      expect(await _idbService.getAllBookmark()).toHaveLength(1);
-
+      await addRestaurantData();
       await _idbService.removevRestaurant(MOCK_KAFE_KITA.id);
 
       expect(await _idbService.getAllBookmark()).toHaveLength(1);
@@ -94,7 +92,7 @@ describe("IndexDBService", () => {
 
   describe("getRestaurant function", () => {
     it("should be able to get restaurant data with given id", async () => {
-      await _idbService.putRestaurant(MOCK_MELTING_POT);
+      await addRestaurantData();
 
       const restaurantDetails = await _idbService.getRestaurant(MOCK_MELTING_POT.id);
 
@@ -103,7 +101,7 @@ describe("IndexDBService", () => {
     });
 
     it("should not return restaurant data when the data not found", async () => {
-      await _idbService.putRestaurant(MOCK_MELTING_POT);
+      await addRestaurantData();
 
       const restaurantDetails = await _idbService.getRestaurant(MOCK_KAFE_KITA.id);
 
@@ -111,7 +109,7 @@ describe("IndexDBService", () => {
     });
 
     it("should not return restaurant data when the id param given is empty", async () => {
-      await _idbService.putRestaurant(MOCK_MELTING_POT);
+      await addRestaurantData();
 
       expect(await _idbService.getRestaurant()).toEqual({});
     });
