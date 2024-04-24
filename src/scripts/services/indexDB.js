@@ -15,10 +15,14 @@ export default class IndexDBService {
   }
 
   async getRestaurant(id) {
+    if (!id) return {};
+
     return (await this.dbPromise).get(OBJECT_STORE_NAME, id);
   }
 
   async putRestaurant(restaurant) {
+    if (!restaurant) return {};
+
     const extractedData = {
       id: restaurant.id,
       pictureId: restaurant.pictureId,
