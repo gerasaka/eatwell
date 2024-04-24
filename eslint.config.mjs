@@ -5,11 +5,10 @@ import eslintConfigPrettier from "eslint-config-prettier";
 export default [
   { languageOptions: { globals: globals.browser } },
   { languageOptions: { globals: globals.node } },
+  { languageOptions: { globals: globals.jest } },
+  { ignores: [".config/*", "./node_modules/", ".git/", "./dist"] },
   pluginJs.configs.recommended,
   eslintConfigPrettier,
-  {
-    ignores: [".config/*", "./node_modules/", ".git/", "./dist"],
-  },
   {
     rules: {
       semi: ["error", "always"],
