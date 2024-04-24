@@ -1,27 +1,12 @@
-import { SearchBarComponent } from "../src/scripts/components";
-import { waitForAsyncProcess } from "./helper/eventHandler";
+import { searchRestaurant } from "./helper/eventHandler";
+import { renderSearchBarEl } from "./helper/test-factories";
 import { MOCK_SEARCH_ALL, MOCK_SEARCH_KAFE } from "./mocks/search-result";
 
 describe("Search restaurant", () => {
   const restaurantService = { searchRestaurant: jest.fn() };
 
-  const renderSearchBarEl = () => {
-    const searchBarEl = new SearchBarComponent(restaurantService);
-
-    document.body.innerHTML =
-      '<div class="list-wrapper"><div class="restaurant-container"></div></div>';
-    document.querySelector(".list-wrapper").appendChild(searchBarEl);
-  };
-
-  const searchRestaurant = async (query) => {
-    document.getElementById("query").value = query;
-    document.getElementById("submit-search").click();
-
-    await waitForAsyncProcess();
-  };
-
   beforeEach(() => {
-    renderSearchBarEl();
+    renderSearchBarEl(restaurantService);
   });
 
   afterEach(() => {
