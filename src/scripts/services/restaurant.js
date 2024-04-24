@@ -47,7 +47,7 @@ export default class RestaurantService {
 
     try {
       showLoader("loading-wrapper");
-      const response = await fetch(SEARCH_RESTAURANT + query);
+      const response = await fetch(SEARCH_RESTAURANT + query.trim());
       const data = await response.json();
       result = data.restaurants;
     } catch (err) {
