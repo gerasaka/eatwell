@@ -1,16 +1,16 @@
 import { showToast } from "../utils/toast-helper";
 
 export default class BookmarkComponent extends HTMLElement {
-  constructor(idbService, wrapper, restaurant) {
+  constructor(idbService, restaurant) {
     super();
 
     this._idbService = idbService;
     this._restaurantData = restaurant;
-    this.buttonWrapper = wrapper;
   }
 
-  connectedCallback() {
-    this.render();
+  async connectedCallback() {
+    await this.render();
+    this.attachEventListeners();
   }
 
   get bookmarkButton() {
@@ -36,21 +36,25 @@ export default class BookmarkComponent extends HTMLElement {
      */
     if (await this._idbService.getRestaurant(this._restaurantData.id)) {
       this.innerHTML = this.activeBookmarkButton;
-      const bookmarkButtonEl = document.querySelector("#bookmark");
-      bookmarkButtonEl.addEventListener("click", async () => {
-        await this._idbService.removevRestaurant(this._restaurantData.id);
-        this.render();
-        showToast("success", "Restoran dihapus dari  daftar favorit");
-      });
     } else {
       this.innerHTML = this.bookmarkButton;
-      const bookmarkButtonEl = document.querySelector("#bookmark");
-      bookmarkButtonEl.addEventListener("click", async () => {
-        await this._idbService.putRestaurant(this._restaurantData);
-        this.render();
-        showToast("success", "Restoran ditambahkan ke daftar favorit");
-      });
     }
+  }
+
+  attachEventListeners() {
+    const bookmarkButtonEl = this.querySelector("#bookmark");
+
+    bookmarkButtonEl.addEventListener("click", async () => {
+      if (await this._idbService.getRestaurant(this._restaurantData.id)) {
+        await this._idbService.removevRestaurant(this._restaurantData.id);
+        showToast("success", "Restoran dihapus dari  daftar favorit");
+      } else {
+        await this._idbService.putRestaurant(this._restaurantData);
+        showToast("success", "Restoran ditambahkan ke daftar favorit");
+      }
+
+      this.render();
+    });
   }
 }
 

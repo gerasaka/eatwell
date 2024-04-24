@@ -25,7 +25,7 @@ export default class DetailsHeaderComponent extends HTMLElement {
   createBookmarkButtonEl() {
     const wrapper = document.createElement("div");
     wrapper.className = "bookmark-wrapper";
-    const bookmarkButton = new BookmarkComponent(this._idbService, wrapper, this._data);
+    const bookmarkButton = new BookmarkComponent(this._idbService, this._data);
     wrapper.appendChild(bookmarkButton);
 
     return wrapper;
