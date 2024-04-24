@@ -1,7 +1,7 @@
-const hero1 = require("../../public/images/heroes/hero-image_1.jpg");
-const hero2 = require("../../public/images/heroes/hero-image_2.jpg");
-const hero3 = require("../../public/images/heroes/hero-image_3.jpg");
-const hero4 = require("../../public/images/heroes/hero-image_4.jpg");
+import hero1 from "../../public/images/heroes/hero-image_1.jpg";
+import hero2 from "../../public/images/heroes/hero-image_2.jpg";
+import hero3 from "../../public/images/heroes/hero-image_3.jpg";
+import hero4 from "../../public/images/heroes/hero-image_4.jpg";
 
 export default function animateCarousel() {
   const heroImages = [hero1, hero2, hero3, hero4];
