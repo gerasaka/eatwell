@@ -1,6 +1,6 @@
 import { searchRestaurant } from "./helper/eventHandler";
 import { renderSearchBarEl } from "./helper/test-factories";
-import { MOCK_SEARCH_ALL, MOCK_SEARCH_KAFE } from "./mocks/search-result";
+import { MOCK_SEARCH_ALL, MOCK_SEARCH_KAFE } from "./mocks/search-result.mock";
 
 describe("Search restaurant", () => {
   const restaurantService = { searchRestaurant: jest.fn() };

@@ -1,5 +1,5 @@
 import IndexDBService from "../src/scripts/services/indexDB";
-import { MOCK_KAFE_KITA, MOCK_MELTING_POT } from "./mocks/restaurant-details";
+import { MOCK_KAFE_KITA, MOCK_MELTING_POT } from "./mocks/restaurant-details.mock";
 
 describe("IndexDBService", () => {
   const _idbService = new IndexDBService();

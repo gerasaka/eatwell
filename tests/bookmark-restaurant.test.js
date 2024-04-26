@@ -1,7 +1,7 @@
 import IndexDBService from "../src/scripts/services/indexDB";
 import { clickBookmarkButton } from "./helper/eventHandler";
 import { createBookmarkButtonEl } from "./helper/test-factories";
-import { MOCK_MELTING_POT } from "./mocks/restaurant-details";
+import { MOCK_MELTING_POT } from "./mocks/restaurant-details.mock";
 
 describe("Bookmark restaurant", () => {
   const addLikeButtonContainer = () => {

@@ -5,8 +5,8 @@ import {
 } from "../src/scripts/constant/api-path";
 import RestaurantService from "../src/scripts/services/restaurant";
 import { waitForAsyncProcess } from "./helper/eventHandler";
-import { MOCK_MELTING_POT } from "./mocks/restaurant-details";
-import { MOCK_SEARCH_ALL, MOCK_SEARCH_KAFE } from "./mocks/search-result";
+import { MOCK_MELTING_POT } from "./mocks/restaurant-details.mock";
+import { MOCK_SEARCH_ALL, MOCK_SEARCH_KAFE } from "./mocks/search-result.mock";
 import { MOCK_CUSTOMER_REVIEW } from "./mocks/submit-review.mock";
 
 global.fetch = jest.fn();
