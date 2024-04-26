@@ -8,7 +8,7 @@ Before(({ I }) => {
 
 let savedRestaurant = ''
 
-Scenario("verify restaurant item exist and open restaurant details", async ({ I }) => {
+Scenario("verify restaurant item exist", async ({ I }) => {
   I.seeElement('.restaurant-item');
 
   const firstRestaurantItem = locate("//a[starts-with(@href, '#/details/')]").first();
@@ -27,7 +27,7 @@ Scenario("saving restaurant", async ({ I }) => {
 
   I.seeElement('#bookmark');
   I.click('#bookmark');
-  I.seeElement('#toast');
+  I.see('Restoran ditambahkan ke daftar favorit');
 
   I.amOnPage("/#/favorit");
   I.seeElement('.restaurant-item');
@@ -37,7 +37,7 @@ Scenario("saving restaurant", async ({ I }) => {
   // un bookmark element
   I.click(firstRestaurantItem);
   I.click('#bookmark');
-  I.seeElement('#toast');
+  I.see('Restoran dihapus dari daftar favorit');
 
   I.amOnPage("/#/favorit");
   I.dontSee(savedRestaurant)
