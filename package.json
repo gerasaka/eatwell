@@ -13,7 +13,8 @@
     "lint": "yarn run eslint ./src",
     "format": "npx prettier ./src --write",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "e2e": "npx codeceptjs run --steps"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",
