@@ -48,7 +48,7 @@ export default class BookmarkComponent extends HTMLElement {
     bookmarkButtonEl.addEventListener("click", async () => {
       if (await this._idbService.getRestaurant(this._restaurantData.id)) {
         await this._idbService.removevRestaurant(this._restaurantData.id);
-        showToast("success", "Restoran dihapus dari  daftar favorit");
+        showToast("success", "Restoran dihapus dari daftar favorit");
       } else {
         await this._idbService.putRestaurant(this._restaurantData);
         showToast("success", "Restoran ditambahkan ke daftar favorit");
