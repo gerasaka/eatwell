@@ -10,7 +10,6 @@ export default class BookmarkComponent extends HTMLElement {
 
   async connectedCallback() {
     await this.render();
-    this.attachEventListeners();
   }
 
   get bookmarkButton() {
@@ -39,6 +38,8 @@ export default class BookmarkComponent extends HTMLElement {
     } else {
       this.innerHTML = this.bookmarkButton;
     }
+
+    this.attachEventListeners();
   }
 
   attachEventListeners() {
