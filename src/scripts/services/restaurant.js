@@ -26,7 +26,7 @@ export default class RestaurantService {
   }
 
   async getRestaurantDetails(id) {
-    let result = null;
+    let result = undefined;
 
     try {
       showLoader();
@@ -42,12 +42,11 @@ export default class RestaurantService {
     return result;
   }
 
-  async searchRestaurant(query) {
+  async searchRestaurant(query = "") {
     let result = [];
-
     try {
       showLoader("loading-wrapper");
-      const response = await fetch(SEARCH_RESTAURANT + query.trim());
+      const response = await fetch(SEARCH_RESTAURANT + query);
       const data = await response.json();
       result = data.restaurants;
     } catch (err) {
