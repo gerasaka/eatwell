@@ -13,3 +13,13 @@ export const searchRestaurant = async (query) => {
 
   await waitForAsyncProcess();
 };
+
+export const submitNewReview = (name, review) => {
+  const nameField = document.getElementById("author");
+  const reviewField = document.getElementById("review");
+  const submitButton = document.getElementById("submit-review");
+
+  nameField.value = name;
+  reviewField.value = review;
+  submitButton.dispatchEvent(new Event("click"));
+};

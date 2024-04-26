@@ -39,6 +39,11 @@ export const MOCK_MELTING_POT = {
       review: "Tidak rekomendasi untuk pelajar!",
       date: "13 November 2019",
     },
+    {
+      name: "test",
+      review: "makanannya lezat",
+      date: "29 Oktober 2020",
+    },
   ],
 };
 
