@@ -17,6 +17,14 @@ describe("Restaurant service", () => {
     document.body.innerHTML = '<div id="content"><div id="loading-wrapper"></div></div>';
   };
 
+  const expectLoadingWhileProcessing = async () => {
+    expect(document.getElementById("loading")).toBeTruthy();
+
+    await waitForAsyncProcess();
+
+    expect(document.getElementById("loading")).toBeFalsy();
+  };
+
   beforeEach(() => {
     addContentWrapperEl();
   });
@@ -44,21 +52,11 @@ describe("Restaurant service", () => {
 
       restaurantService.getRestaurantList();
 
-      expect(document.getElementById("loading")).toBeTruthy();
-    });
-
-    it("should show loader when called and fetch processing", async () => {
-      fetch.mockResolvedValueOnce({
-        json: jest.fn().mockResolvedValueOnce({ restaurants: MOCK_SEARCH_ALL }),
-      });
-
-      await restaurantService.getRestaurantList();
-
-      expect(document.getElementById("loading")).toBeFalsy();
+      await expectLoadingWhileProcessing();
     });
 
     it("should return empty array when fetch process failed", async () => {
-      fetch.mockRejectedValueOnce(new Error("fetch details error"));
+      fetch.mockRejectedValueOnce("intentional error - fetch details");
 
       const result = await restaurantService.getRestaurantList();
 
@@ -98,15 +96,11 @@ describe("Restaurant service", () => {
 
       restaurantService.getRestaurantDetails("rqdv5juczeskfw1e867");
 
-      expect(document.getElementById("loading")).toBeTruthy();
-
-      await waitForAsyncProcess();
-
-      expect(document.getElementById("loading")).toBeFalsy();
+      await expectLoadingWhileProcessing();
     });
 
     it("should return undefined when fetch process failed", async () => {
-      fetch.mockRejectedValueOnce(new Error("fetch details error"));
+      fetch.mockRejectedValueOnce("intetional error - fetch details");
 
       const result = await restaurantService.getRestaurantDetails("rqdv5juczeskfw1e867");
 
@@ -158,15 +152,11 @@ describe("Restaurant service", () => {
 
       restaurantService.searchRestaurant("kafe");
 
-      expect(document.getElementById("loading")).toBeTruthy();
-
-      await waitForAsyncProcess();
-
-      expect(document.getElementById("loading")).toBeFalsy();
+      await expectLoadingWhileProcessing();
     });
 
     it("should return empty array when fetch process failed", async () => {
-      fetch.mockRejectedValueOnce(new Error("fetch details error"));
+      fetch.mockRejectedValueOnce("intetional error - fetch details");
 
       const result = await restaurantService.searchRestaurant("kafe");
 
@@ -227,7 +217,7 @@ describe("Restaurant service", () => {
     });
 
     it("should show error toast when failed add review", async () => {
-      fetch.mockRejectedValueOnce(new Error("search resturant failed"));
+      fetch.mockRejectedValueOnce("intetional error - search resturant failed");
 
       await restaurantService.submitReview("rqdv5juczeskfw1e867", "Budi", "Bagus");
 
@@ -236,7 +226,7 @@ describe("Restaurant service", () => {
     });
 
     it("should return null when one of the params empty", async () => {
-      fetch.mockRejectedValue(new Error({ error: true, message: "error occurs" }));
+      fetch.mockRejectedValue({ error: true, message: "intetional error" });
 
       expect(await restaurantService.submitReview(undefined, "Budi", "Bagus")).toEqual(null);
       expect(await restaurantService.submitReview("", "Budi", "Bagus")).toEqual(null);
@@ -249,7 +239,7 @@ describe("Restaurant service", () => {
     });
 
     it("should return null when fetch process failed", async () => {
-      fetch.mockRejectedValueOnce(new Error("search resturant failed"));
+      fetch.mockRejectedValueOnce("intetional error - search resturant failed");
 
       const result = await restaurantService.submitReview("rqdv5juczeskfw1e867", "Budi", "Bagus");
 
