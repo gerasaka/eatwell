@@ -1,4 +1,5 @@
 export default function animateCarousel() {
+  const source = document.getElementById("small-hero");
   const heroItem = document.getElementById("carousel-item");
 
   // start from hero image 2
@@ -9,11 +10,11 @@ export default function animateCarousel() {
     heroItem.className = "fade-hero";
 
     setTimeout(() => {
-      const srcValue = heroItem.src.split(".");
-      const ext = srcValue[1];
-      const size = srcValue[0].split("-")[2];
+      const sourceExt = source.srcset.split(".")[2];
+      const imgExt = heroItem.src.split(".")[1];
 
-      heroItem.src = `./images/heroes/hero-image_${counter}-${size}.${ext}`;
+      source.srcset = `./images/heroes/hero-image_${counter}-small.${sourceExt}`;
+      heroItem.src = `./images/heroes/hero-image_${counter}-large.${imgExt}`;
       counter++;
       heroItem.removeAttribute("class");
     }, 500);

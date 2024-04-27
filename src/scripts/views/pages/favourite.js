@@ -44,9 +44,9 @@ export default class FavouritePageComponent {
       emptyWrapper.className = "empty-wrapper";
       emptyWrapper.innerHTML = `
         <picture>
-          <source media="(max-width: 600px)" srcset="./images/illustration/flying-kite-small.png">
+          <source media="(max-width: 600px)" srcset="./images/illustration/flying-kite-small.webp">
           <img 
-            src="./images/illustration/flying-kite-large.png" 
+            src="./images/illustration/flying-kite-large.webp" 
             alt="ilustrasi list restoran kosong"
             loading="lazy"
           >

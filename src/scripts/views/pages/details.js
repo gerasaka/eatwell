@@ -137,9 +137,9 @@ export default class DetailsPageComponent {
     errorWrapper.innerHTML = `
       <h1 tabindex="0">Hmmm... Terjadi kesalahan</h1>
       <picture>
-        <source media="(max-width: 600px)" srcset="./images/illustration/bug-small.png">
+        <source media="(max-width: 600px)" srcset="./images/illustration/bug-small.webp">
         <img 
-          src="./images/illustration/bug-large.png" 
+          src="./images/illustration/bug-large.webp" 
           alt="gambar ilustrasi bug atau error"
           loading="lazy"
         >

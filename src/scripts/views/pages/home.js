@@ -11,7 +11,11 @@ export default class HomePageComponent {
     wrapperElement.id = "carousel";
     wrapperElement.innerHTML = `
       <picture>
-        <source media="(max-width: 600px)" srcset="./images/heroes/hero-image_1-small.webp">
+        <source
+          id="small-hero"
+          media="(max-width: 600px)"
+          srcset="./images/heroes/hero-image_1-small.webp"
+        >
         <img
           id="carousel-item"
           src="./images/heroes/hero-image_1-large.webp" 
@@ -57,7 +61,10 @@ export default class HomePageComponent {
       const emptyWrapper = document.createElement("div");
       emptyWrapper.className = "empty-wrapper";
       emptyWrapper.innerHTML = `
-        <img src="images/illustration/empty.png" alt="ilustrasi list restoran kosong" />
+        <picture>
+          <source media="(max-width: 600px)" srcset="./images/illustration/empty-small.webp">
+          <img src="./images/illustration/empty-large.webp" alt="ilustrasi list restoran kosong">s
+        </picture>
         <p tabindex="0">Sedang terjadi masalah atau tidak ada restoran untuk ditampilkan</p>
       `;
 

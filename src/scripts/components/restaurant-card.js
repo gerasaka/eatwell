@@ -1,4 +1,4 @@
-import { BASE_IMAGE_URL } from "../constant/config";
+import { BASE_IMAGE_URL, BASE_SMALL_IMAGE_URL } from "../constant/config";
 
 const noImage = require("../../public/images/no-image.png");
 
@@ -21,13 +21,16 @@ export default class RestaurantCardComponent extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="restaurant-item" tabindex="0">
-        <img
-          src="${BASE_IMAGE_URL}/${this.imageUrl}"
-          alt="gambar ${this.name}"
-          loading="lazy"
-          onerror="this.onerror=null;this.src='${noImage}';this.style.objectFit = 'contain';this.style.padding = '3rem'"
-          tabindex="0"
-        />
+        <picture>
+          <source media="(max-width: 600px)" srcset="${BASE_SMALL_IMAGE_URL}/${this.imageUrl}">
+          <img
+            src="${BASE_IMAGE_URL}/${this.imageUrl}"
+            alt="gambar ${this.name}"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='${noImage}';this.style.objectFit = 'contain';this.style.padding = '3rem'"
+            tabindex="0"
+          >
+        </picture>
 
         <div class="restaurant-info">
           <h2><a href="#/details/${this.id}">${this.name}</a></h2>
