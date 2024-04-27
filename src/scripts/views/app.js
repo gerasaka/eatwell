@@ -30,6 +30,6 @@ export default class App {
     const page = new routes[url](this._restaurantService, this._idbService);
     await page.render(this._mainContent);
 
-    this.scrollToTop;
+    this.scrollToTop();
   }
 }
