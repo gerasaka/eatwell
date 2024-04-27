@@ -20,10 +20,16 @@ export default class App {
     });
   }
 
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   async renderPage() {
     this._mainContent.innerHTML = "";
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = new routes[url](this._restaurantService, this._idbService);
     await page.render(this._mainContent);
+
+    this.scrollToTop;
   }
 }
