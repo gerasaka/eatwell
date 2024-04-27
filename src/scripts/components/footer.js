@@ -40,7 +40,14 @@ export default class FooterComponent extends HTMLElement {
       </div>
 
       <div class="copy">
-        <img src="images/illustration/chef.png" alt="ilustrasi chef" />
+        <picture>
+          <source media="(max-width: 600px)" srcset="./images/illustration/chef-small.webp">
+          <img
+            src='./images/illustration/chef-large.webp' 
+            alt="ilustrasi chef"
+            loading="lazy"
+          >
+        </picture>
         <p tabindex="0">Copyright &#169; 2024 - eatwell</p>
       </div>
     `;

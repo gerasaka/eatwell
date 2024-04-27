@@ -8,7 +8,14 @@ export default class FavouritePageComponent {
   createFavouriteHeaderEl() {
     return `
       <div class="favourite-header">
-        <img src="images/illustration/files.png" alt="gambar ilustrasi file">
+        <picture>
+          <source media="(max-width: 600px)" srcset="./images/illustration/files-small.webp">
+          <img 
+            src="./images/illustration/files-large.webp" 
+            alt="gambar ilustrasi file"
+            loading="lazy"
+          >
+        </picture>
         <h1 tabindex="0">Daftar Restoran Favorit</h1>
       </div>
     `;
@@ -36,7 +43,14 @@ export default class FavouritePageComponent {
       const emptyWrapper = document.createElement("div");
       emptyWrapper.className = "empty-wrapper";
       emptyWrapper.innerHTML = `
-        <img src="../images/illustration/flying-kite.png" alt="ilustrasi list restoran kosong" />
+        <picture>
+          <source media="(max-width: 600px)" srcset="./images/illustration/flying-kite-small.png">
+          <img 
+            src="./images/illustration/flying-kite-large.png" 
+            alt="ilustrasi list restoran kosong"
+            loading="lazy"
+          >
+        </picture>
         <p tabindex="0">Tidak ada restoran favorit, mulai simpan restoran untuk akses yang lebih mudah dan cepat</p>
       `;
 

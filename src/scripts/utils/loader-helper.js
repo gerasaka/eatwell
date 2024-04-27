@@ -1,6 +1,13 @@
 const loadingEl = `
   <div id="loading">
-    <img src="images/illustration/process.png" />
+    <picture>
+      <source media="(max-width: 600px)" srcset="./images/illustration/process-small.webp">
+      <img 
+        src="./images/illustration/process-large.webp" 
+        alt="ilustrasi proses sedang berlangsung"
+        loading="lazy"
+      >
+    </picture>
     <span>
       <h2>Mohon Tunggu</h2>
       <p>Konten sedang di proses...</p>

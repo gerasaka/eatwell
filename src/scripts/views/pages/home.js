@@ -10,11 +10,14 @@ export default class HomePageComponent {
     const wrapperElement = document.createElement("section");
     wrapperElement.id = "carousel";
     wrapperElement.innerHTML = `
-      <img
-        id="carousel-item"
-        src="images/heroes/hero-image_1.webp"
-        alt="gambar hero"
-      />
+      <picture>
+        <source media="(max-width: 600px)" srcset="./images/heroes/hero-image_1-small.webp">
+        <img
+          id="carousel-item"
+          src="./images/heroes/hero-image_1-large.webp" 
+          alt="gambar hero"
+        >
+      </picture>
 
       <icon-chevron-down class="scroll-down"></icon-chevron-down>
 

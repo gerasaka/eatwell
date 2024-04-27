@@ -29,14 +29,28 @@ export default class DetailsPageComponent {
       <div class="menu-display">
         <p tabindex="0">Makanan</p>
         <div>
-          <img src="images/illustration/food.png" alt="ilustrasi makanan" />
+          <picture>
+            <source media="(max-width: 600px)" srcset="./images/illustration/food-small.webp">
+            <img 
+              src="./images/illustration/food-large.webp" 
+              alt="ilustrasi makanan"
+              loading="lazy"
+            >
+          </picture>
           <ul>${foods}</ul>
         </div>
       </div>
       <div class="menu-display">
         <p tabindex="0">Minuman</p>
         <div>
-          <img src="images/illustration/drink.png" alt="ilustrasi minuman" />
+          <picture>
+            <source media="(max-width: 600px)" srcset="./images/illustration/drink-small.webp">
+            <img 
+              src="./images/illustration/drink-large.webp" 
+              alt="ilustrasi minuman"
+              loading="lazy"
+            >
+          </picture>
           <ul>${drinks}</ul>
         </div>
       </div>
@@ -122,7 +136,14 @@ export default class DetailsPageComponent {
 
     errorWrapper.innerHTML = `
       <h1 tabindex="0">Hmmm... Terjadi kesalahan</h1>
-      <img src="images/illustration/bug.png" alt="gambar ilustrasi bug atau error">
+      <picture>
+        <source media="(max-width: 600px)" srcset="./images/illustration/bug-small.png">
+        <img 
+          src="./images/illustration/bug-large.png" 
+          alt="gambar ilustrasi bug atau error"
+          loading="lazy"
+        >
+      </picture>
       <p tabindex="0">Gagal memuat halaman details, periksa koneksi anda atau coba beberapa saat lagi</p>
     `;
 
