@@ -12,7 +12,7 @@ export default class HomePageComponent {
     wrapperElement.innerHTML = `
       <img
         id="carousel-item"
-        src="images/heroes/hero-image_1.jpg"
+        src="images/heroes/hero-image_1.webp"
         alt="gambar hero"
       />
 

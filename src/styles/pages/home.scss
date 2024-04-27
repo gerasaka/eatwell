@@ -2,6 +2,10 @@
   position: relative;
   overflow: hidden;
 
+  img {
+    height: 30%;
+  }
+
   #carousel-item {
     transition: opacity 0.5s ease-in-out;
   }

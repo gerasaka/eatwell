@@ -1,7 +1,7 @@
-import hero1 from "../../public/images/heroes/hero-image_1.jpg";
-import hero2 from "../../public/images/heroes/hero-image_2.jpg";
-import hero3 from "../../public/images/heroes/hero-image_3.jpg";
-import hero4 from "../../public/images/heroes/hero-image_4.jpg";
+import hero1 from "../../public/images/heroes/hero-image_1.webp";
+import hero2 from "../../public/images/heroes/hero-image_2.webp";
+import hero3 from "../../public/images/heroes/hero-image_3.webp";
+import hero4 from "../../public/images/heroes/hero-image_4.webp";
 
 export default function animateCarousel() {
   const heroImages = [hero1, hero2, hero3, hero4];
