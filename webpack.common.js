@@ -54,7 +54,10 @@ module.exports = {
     new CleanWebpackPlugin(),
     new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({ filename: "[name].css" }),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static",
+      openAnalyzer: true,
+    }),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: path.resolve(__dirname, "src/templates/index.html"),
