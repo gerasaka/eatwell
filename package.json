@@ -8,7 +8,7 @@
   "license": "ISC",
   "scripts": {
     "start-dev": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js; yarn build-image",
+    "build": "webpack --config webpack.prod.js && yarn build-image",
     "build-image": "node sharp.js",
     "serve": "http-server dist",
     "lint": "yarn run eslint ./src",

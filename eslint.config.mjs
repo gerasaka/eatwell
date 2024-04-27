@@ -6,7 +6,6 @@ export default [
   { languageOptions: { globals: globals.browser } },
   { languageOptions: { globals: globals.node } },
   { languageOptions: { globals: globals.jest } },
-  { languageOptions: { globals: globals.codeceptjs } },
   { ignores: [".config/*", "./node_modules/", ".git/", "./dist"] },
   pluginJs.configs.recommended,
   eslintConfigPrettier,

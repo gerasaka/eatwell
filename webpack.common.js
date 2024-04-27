@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -53,6 +54,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({ filename: "[name].css" }),
+    new BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: path.resolve(__dirname, "src/templates/index.html"),
