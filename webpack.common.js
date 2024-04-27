@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
 module.exports = {
   entry: {
@@ -17,7 +19,7 @@ module.exports = {
       { test: /\.(png|jpg|jpeg|svg|webp|gif)$/i, type: "asset/resource" },
       {
         test: /\.(css|scss|sass)$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
     ],
   },
@@ -49,6 +51,8 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new FixStyleOnlyEntriesPlugin(),
+    new MiniCssExtractPlugin({ filename: "[name].css" }),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: path.resolve(__dirname, "src/templates/index.html"),
