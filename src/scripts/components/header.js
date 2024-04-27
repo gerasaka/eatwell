@@ -36,7 +36,7 @@ export default class HeaderComponent extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <img src="images/logo/eatwell-logo-transparent.png" alt="logo eatwell" />
+      <img src="./logo/eatwell-logo-transparent.png" alt="logo eatwell" />
 
       <nav class="overlay">
         <ul class="drawer">
