@@ -10,11 +10,8 @@ export default function animateCarousel() {
     heroItem.className = "fade-hero";
 
     setTimeout(() => {
-      const sourceExt = source.srcset.split(".")[2];
-      const imgExt = heroItem.src.split(".")[1];
-
-      source.srcset = `./images/heroes/hero-image_${counter}-small.${sourceExt}`;
-      heroItem.src = `./images/heroes/hero-image_${counter}-large.${imgExt}`;
+      source.srcset = `./images/heroes/hero-image_${counter}-small.webp`;
+      heroItem.src = `./images/heroes/hero-image_${counter}-large.webp`;
       counter++;
       heroItem.removeAttribute("class");
     }, 500);

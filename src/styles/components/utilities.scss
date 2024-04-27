@@ -94,6 +94,15 @@ label {
   @include tablet {
     top: 100px;
   }
+
+  icon-check,
+  icon-cross {
+    display: none;
+
+    @media screen and (min-width: 600px) {
+      display: block;
+    }
+  }
 }
 
 .toast-success {
