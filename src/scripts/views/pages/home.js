@@ -20,6 +20,7 @@ export default class HomePageComponent {
           id="carousel-item"
           src="./images/heroes/hero-image_1-large.webp" 
           alt="gambar hero"
+          fetchpriority="high"
         >
       </picture>
 

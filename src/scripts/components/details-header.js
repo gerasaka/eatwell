@@ -41,11 +41,10 @@ export default class DetailsHeaderComponent extends HTMLElement {
         <img
           src="${BASE_IMAGE_URL}/${this._data.pictureId}"
           alt="Gambar ${this._data.name}"
-          loading="lazy"
           onerror="this.onerror=null;this.src='${noImage}';this.style.objectFit = 'contain';this.style.padding = '3rem'"
         >
       </picture>
-      
+
       <div>
         <h1 tabindex="0">${this._data.name}</h1>
 
