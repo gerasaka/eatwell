@@ -9,6 +9,7 @@
   "scripts": {
     "start-dev": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "build-image": "node sharp.js",
     "serve": "http-server dist",
     "lint": "yarn run eslint ./src",
     "format": "npx prettier ./src --write",
@@ -38,6 +39,7 @@
     "jest-environment-jsdom": "^29.6.1",
     "playwright": "^1.43.1",
     "prettier": "3.2.5",
+    "sharp": "^0.33.3",
     "style-loader": "^3.3.1",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
