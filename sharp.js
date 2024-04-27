@@ -39,7 +39,7 @@ const processImagesInDir = async (dirPath) => {
 
     if (stat.isDirectory()) {
       await processImagesInDir(itemPath);
-    } else if (item.endsWith(".png") || item.endsWith(".webp")) {
+    } else if (item.endsWith(".png") || item.endsWith(".jpg")) {
       await processImage(itemPath);
     }
   }
