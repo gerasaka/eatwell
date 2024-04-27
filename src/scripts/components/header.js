@@ -11,6 +11,7 @@ export default class HeaderComponent extends HTMLElement {
 
   createDrawer() {
     const btnElement = document.createElement("button");
+    btnElement.ariaLabel = "tombol drawer navigasi";
     btnElement.appendChild(new HamburgerIcon());
     this.appendChild(btnElement);
 
